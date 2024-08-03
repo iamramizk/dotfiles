@@ -1,0 +1,93 @@
+add_newline = false
+command_timeout = 20000  # Timeout in milliseconds
+
+format = """
+[](fg:#53D5BE)\
+[](bg:#53D5BE fg:#2B2E42)\
+[](fg:#53D5BE bg:#3B4161)\
+$directory\
+"""
+
+right_format = """
+[](fg:#25283D)\
+$git_branch\
+$git_status\
+$git_state\
+$python\
+$cmd_duration\
+$status\
+[](fg:#25283D)\
+"""
+
+
+[directory]
+style = "fg:#C0C9F6 bg:#3B4161"
+format = "[ $path ]($style)[ ](fg:#3B4161)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"~/Dev/Python" = "Python"
+"~/Documents" = "󰈙 Documents"
+"~/Downloads" = " Downloads"
+"~/Music" = " Music"
+"~/Pictures" = " Pictures"
+"~/Dev" = " Dev"
+"~" = " ~"
+
+[character]
+success_symbol = '[✔](fg:#35383D bg:#35383D)'
+error_symbol = '[x](fg:bold red bg:#35383D)'
+# format = ""
+
+[status]
+success_symbol = '[✔](fg:#757AA1 bg:#25283D)'
+symbol = '[✘](fg:#FF7580 bg:#25283D)'
+map_symbol = false
+disabled = false
+style = "bg:#35383D"
+format = '[$symbol]($style)'
+
+
+[python]
+python_binary = 'python3'
+style = "fg:#FEC776 bg:#25283D"
+symbol = ""
+format = '[ ${symbol}${pyenv_prefix}(${version})  ]($style)'
+detect_extensions = []
+detect_files = []
+detect_folders = []
+
+[git_branch]
+symbol = ""
+format = '[ $symbol $branch ](fg:#C3E88E bg:#25283D)'
+
+[git_status]
+format = '[($all_status$ahead_behind)](bg:#25283D fg:#E8FFC6)'
+conflicted = "⚔️  "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+untracked = "?${count} "
+stashed = "📦 "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "✘${count} "
+style = "bold yellow"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bg:#25283D fg:#E8FFC6"
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#35383D"
+format = '[ $time](fg:#a0a9cb bg:#25283D)'
+
+[cmd_duration]
+min_time = 5  # 2 seconds = 2000
+format = '[ $duration ](fg:#a0a9cb bg:#25283D)'
+show_milliseconds = false
+
