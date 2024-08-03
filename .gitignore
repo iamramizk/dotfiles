@@ -24,3 +24,4 @@ Temporary Items
 
 # Ignore the specific file
 scripts/apps.zsh
+lvim/lazy-lock.json
