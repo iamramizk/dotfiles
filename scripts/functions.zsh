@@ -21,7 +21,7 @@ function funcs() {
   fzf --height 100% --preview="echo 'Function code for {}: '; grep -A 1000 {} '$funcs_file' | bat -n --color=always --style=plain --language=zsh"
 }
 
-function  apps() {
+function apps() {
   # show all apps
   local apps_file="$DOTFILESDIR/scripts/apps.zsh"
   
@@ -111,4 +111,14 @@ function cc() {
   echo ${(%):-"%B>%b Clipboard cleared."}
 }
 
+function tef() {
+  # tree with grep as arg
+  var="${1:- }"
+	te | grep -i "$var"
+}
 
+
+function lg() {
+  # Live grep and open in lvim on searched line number
+  rg --hidden --glob '!.*' --line-number '' . | fzf --delimiter : --preview 'if [ "{}" != "" ]; then start_line=$(echo {} | cut -d: -f2); file=$(echo {} | cut -d: -f1); bat --style=numbers --color=always --highlight-line $start_line --line-range $((start_line>10 ? start_line-10 : 1)):$((start_line+10)) $file; fi' --preview-window=right:50% --bind 'enter:execute($EDITOR +{2} {1} +"normal! zz")'
+}
