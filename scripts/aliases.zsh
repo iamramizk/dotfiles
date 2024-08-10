@@ -22,11 +22,6 @@ alias ttea='space && eza -Ta -L 1 --icons=always --group-directories-first --sor
 alias ttea2='space && eza -Ta -L 2 --icons=always --group-directories-first --sort=modified --reverse'
 alias ttea3='space && eza -Ta -L 3 --icons=always --group-directories-first --sort=modified --reverse'
 
-function tef() {
-	var="${1:- }"
-	te | grep -i "$var"
-}
-
 # FILES CONFIG
 alias zrc="v ~/.zshrc"
 alias vrc="v ~/.config/lvim/config.lua"
@@ -71,7 +66,6 @@ alias csvprint="python3 $PYGLOBAL/print_csv.py"
 alias pys="python3 $PYGLOBAL/server_hotreload.py"
 alias passgen="python3 $PYGLOBAL/passgen.py"
 alias cc="python3 $PYGLOBAL/clearclipboard.py"
-
 
 # FUZZING
 alias se='fzf --reverse --multi'
