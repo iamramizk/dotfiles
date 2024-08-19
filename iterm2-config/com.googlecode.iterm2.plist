@@ -4,18 +4,10 @@
 <dict>
 	<key>AlternateMouseScroll</key>
 	<true/>
-	<key>AppleAntiAliasingThreshold</key>
-	<integer>1</integer>
-	<key>ApplePressAndHoldEnabled</key>
-	<false/>
-	<key>AppleScrollAnimationEnabled</key>
-	<integer>0</integer>
-	<key>AppleSmoothFixedFontsSizeThreshold</key>
-	<integer>1</integer>
-	<key>AppleWindowTabbingMode</key>
-	<string>manual</string>
 	<key>BadgeTopMargin</key>
 	<integer>10</integer>
+	<key>Default Arrangement Name</key>
+	<string>Split</string>
 	<key>Default Bookmark Guid</key>
 	<string>0C6F96BE-50F0-42C9-8508-FCC2F39C37A1</string>
 	<key>DimBackgroundWindows</key>
@@ -878,6 +870,8 @@
 	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
+	<key>Window Arrangements</key>
+	<dict/>
 	<key>WindowNumber</key>
 	<true/>
 	<key>findMode_iTerm</key>

@@ -97,6 +97,7 @@ formulae=(
 	"ripgrep"
 	"fd"
 	"exploitdb"
+	"gum"
 )
 
 # List of casks
