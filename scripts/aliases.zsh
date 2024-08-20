@@ -47,7 +47,7 @@ alias dotfiles="cd $DOTFILESDIR"
 alias dls='cd ~/Downloads/'
 alias dtop='cd ~/Desktop'
 alias dev='cd ~/Dev/'
-alias pyd="cd $PYTHONDIR && tte"
+alias pyd="cd $PYTHONDIR"
 alias vconfig="cd ~/.config/lvim/"
 alias docs="cd ~/Documents"
 
