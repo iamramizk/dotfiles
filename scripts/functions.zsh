@@ -71,7 +71,7 @@ function pyda() {
   selected_dir=$(fd -t d -d 1 | xargs -I {} stat -f '%m %N' {} | sort -nr | cut -d' ' -f2- | sed 's:/$::' | fzf --preview "eza -T -L 1 --icons=always --group-directories-first --sort=name --color=always -- {}" --preview-window=right:50%)
 
   if [[ -n "$selected_dir" ]]; then
-    cd "$selected_dir" && act
+    cd "$selected_dir" && act && te
   fi
 }
 
