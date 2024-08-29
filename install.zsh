@@ -4,10 +4,17 @@ BOLD='\033[1m'
 CYAN='\033[36m'
 RESET='\033[0m'
 PREFIX="${BOLD}${CYAN}[>]${RESET}"
-
-### CREATE SYMLINKS
 DOTFILES="$HOME/.dotfiles"
 
+### CREATE FOLDERS
+if [ ! -d "$HOME/Dev" ]; then
+	mkdir -p $HOME/Dev
+fi
+if [ ! -d "$HOME/Dev/Python" ]; then
+	mkdir -p $HOME/Dev/Python
+fi
+
+### CREATE SYMLINKS
 # starship
 if [ -e "$HOME/.config/starship.toml" ]; then
 	echo -e "$PREFIX starship.toml found. Creating backup"
@@ -39,13 +46,8 @@ ln -s "$DOTFILES/.zshrc" "$HOME/.zshrc"
 # bat
 ln -s "$DOTFILES/bat" "$HOME/.config/bat"
 
-### Create Folders
-if [ ! -d "$HOME/Dev" ]; then
-	mkdir -p $HOME/Dev
-fi
-if [ ! -d "$HOME/Dev/Python" ]; then
-	mkdir -p $HOME/Dev/Python
-fi
+# py global within pyd
+ln -s $DOTFILES/scripts/py-global $HOME/Dev/Python/py-global
 
 ### INSTALL HOMEBREW
 if ! command -v brew &>/dev/null; then
