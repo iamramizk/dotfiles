@@ -67,6 +67,7 @@ alias csvprint="python3 $PYGLOBAL/print_csv.py"
 alias pys="python3 $PYGLOBAL/server_hotreload.py"
 alias passgen="python3 $PYGLOBAL/passgen.py"
 alias cc="python3 $PYGLOBAL/clearclipboard.py"
+alias cmm="python3 $PYGLOBAL/clean_my_mac.py"
 
 # FUZZING
 alias se='fzf --reverse --multi'
