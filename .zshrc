@@ -1,7 +1,7 @@
 # CUSTOM FOLDER PATHS
 export DOTFILESDIR=$HOME/.dotfiles
 export PYTHONDIR=$HOME/Dev/Python
-export PYGLOBAL=$DOTFILESDIR/scripts/py-global
+export PYGLOBAL=$PYTHONDIR/py-global
  
 
 # Fix right indent padding
