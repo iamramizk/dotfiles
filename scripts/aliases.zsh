@@ -62,6 +62,7 @@ alias deact='deactivate'
 alias upip="python3 -m pip install --upgrade pip"
 
 # PYTHON GLOBAL
+alias pyg="cd $PYGLOBAL"
 alias csvprint="python3 $PYGLOBAL/print_csv.py"
 alias pys="python3 $PYGLOBAL/server_hotreload.py"
 alias passgen="python3 $PYGLOBAL/passgen.py"

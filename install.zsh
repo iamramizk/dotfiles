@@ -108,6 +108,7 @@ formulae=(
 	"fd"
 	"exploitdb"
 	"gum"
+	"nmap"
 )
 
 # List of casks
@@ -170,6 +171,9 @@ total_casks=${#casks[@]}
 for i in {1..$total_casks}; do
 	install_package "cask" "${casks[$i - 1]}" "$i" "$total_casks"
 done
+
+# Additional global pip installs (used for py global scripts)
+pip3 install pyperclip rich requests watchdog
 
 # Final configurations
 bat cache --build
