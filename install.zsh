@@ -173,7 +173,7 @@ for i in {1..$total_casks}; do
 done
 
 # Additional global pip installs (used for py global scripts)
-pip3 install pyperclip rich requests watchdog
+pip3 install pyperclip rich requests watchdog reprint
 
 # Final configurations
 bat cache --build
