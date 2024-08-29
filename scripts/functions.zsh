@@ -73,7 +73,6 @@ function nvpyp+() {
 
 	local selected_version=$(gum choose --header="" "${versions[@]}")
   if [[ -z "$selected_version" ]]; then
-		echo "No version selected."
 		return 1
 	fi
 	if [[ "$selected_version" =~ ^[0-9] ]]; then
