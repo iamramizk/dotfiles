@@ -43,6 +43,7 @@ function myip() {
 }
 
 function nvpyp() {
+  # create new python project and env with pip install as args
   echo "${DARKCYAN}\n> Creating virtual env${NC}"
   mkdir ~/Dev/Python/$1
   cd ~/Dev/Python/$1
@@ -64,6 +65,51 @@ function nvpyp() {
     v app.py
   fi
 }
+
+function nvpyp+() {
+  # select py framework and create project with pip install
+  local python_versions_path="/Library/Frameworks/Python.framework/Versions"
+	local versions=($(find "$python_versions_path" -maxdepth 1 -type d -exec basename {} \; | grep -v "^Versions$" | sort))
+
+	local selected_version=$(gum choose --header="" "${versions[@]}")
+  if [[ -z "$selected_version" ]]; then
+		echo "No version selected."
+		return 1
+	fi
+	if [[ "$selected_version" =~ ^[0-9] ]]; then
+		local python_command="python$selected_version"
+	else
+		local python_command="python3"
+	fi
+
+	# Create virtual environment
+	if command -v $python_command >/dev/null 2>&1; then
+    echo "${DARKCYAN}\n> Creating virtual env${NC}"
+    mkdir ~/Dev/Python/$1
+    cd ~/Dev/Python/$1
+    $python_command -m venv .venv
+    act
+    echo "\n${DARKCYAN}> Env activated -${NC} $(python --version)"
+    pip install --upgrade pip
+    touch app.py
+    # install packages if entered as args 3+
+    if [ -z $2 ]; then  
+      echo "${DARKCYAN}\n> Project files created\n${NC}"
+    else
+      for arg in ${@:2}; do
+        echo "${DARKCYAN}\n> Installing $arg ${NC}"
+        pip install $arg
+      done
+      echo "${DARKCYAN}\n> Project files created\n${NC}"
+      sleep 1
+      v app.py
+    fi
+	else
+		echo "Error: $python_command not found. Please ensure it's installed and in your PATH."
+		return 1
+	fi
+}
+
 
 function pyda() {
   # FZF python dirs, cd in & activate env
