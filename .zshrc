@@ -50,9 +50,9 @@ if [[ -d "$HOME/Dev/Flutter/SDK/flutter/bin" ]]; then
     PATH="$PATH:$HOME/Dev/Flutter/SDK/flutter/bin"
 fi
 
-# Python 3.11
-if [[ -d "/Library/Frameworks/Python.framework/Versions/3.11/bin" ]]; then
-    PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:$PATH"
+# Python 3.12
+if [[ -d "/Library/Frameworks/Python.framework/Versions/3.12/bin" ]]; then
+    PATH="/Library/Frameworks/Python.framework/Versions/3.12/bin:$PATH"
 fi
 
 # Bun
@@ -138,6 +138,13 @@ ZSH_HIGHLIGHT_STYLES[function]='fg=#53D5BE'
 
 # bat theme
 export BAT_THEME="tokyonight"
+
+# gum theme
+export GUM_CHOOSE_CURSOR_FOREGROUND="14"
+export GUM_CHOOSE_HEADER_FOREGROUND="14"
+export GUM_CHOOSE_ITEM_FOREGROUND="#ffffff"
+export GUM_CHOOSE_SELECTED_FOREGROUND="14"
+
 
 # THEME STARSHIP
 eval "$(starship init zsh)"
