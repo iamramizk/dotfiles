@@ -8,29 +8,36 @@ PREFIX="${BOLD}${CYAN}[>]${RESET}"
 ### CREATE SYMLINKS
 DOTFILES="$HOME/.dotfiles"
 
+# starship
 if [ -e "$HOME/.config/starship.toml" ]; then
 	echo -e "$PREFIX starship.toml found. Creating backup"
 	mv "$HOME/.config/starship.toml" "$HOME/.config/starship.toml.bak"
 fi
 ln -s "$DOTFILES/starship.toml" "$HOME/.config/starship.toml"
 
+# iterm
 if [ -d "$HOME/.config/iterm2-config" ]; then
 	echo -e "$PREFIX iterm2-config/ found. Creating backup"
 	mv "$HOME/.config/iterm2-config" "$HOME/.config/iterm2-config.bak/"
 fi
 ln -s "$DOTFILES/iterm2-config" "$HOME/.config/iterm2-config"
 
+# lunarvim
 if [ -d "$HOME/.config/lvim" ]; then
 	echo -e "$PREFIX lvim/ found. Creating backup"
 	mv "$HOME/.config/lvim" "$HOME/.config/lvim.bak"
 fi
 ln -s "$DOTFILES/lvim" "$HOME/.config/lvim"
 
+# zshrc
 if [ -e "$HOME/.zshrc" ]; then
 	echo -e "$PREFIX .zshrc found. Creating backup"
 	mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
 fi
 ln -s "$DOTFILES/.zshrc" "$HOME/.zshrc"
+
+# bat
+ln -s "$DOTFILES/bat" "$HOME/.config/bat"
 
 ### Create Folders
 if [ ! -d "$HOME/Dev" ]; then
@@ -79,6 +86,7 @@ formulae=(
 	"fzf"
 	"cmake"
 	"eza"
+	"bat"
 	"htop"
 	"lua"
 	"lua-language-server"
@@ -161,6 +169,8 @@ for i in {1..$total_casks}; do
 	install_package "cask" "${casks[$i - 1]}" "$i" "$total_casks"
 done
 
+# Final configurations
+bat cache --build
 brew update && brew upgrade && brew cleanup
 
 echo -e "\n$PREFIX Installation process complete!"

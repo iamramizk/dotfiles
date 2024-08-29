@@ -136,6 +136,9 @@ ZSH_HIGHLIGHT_STYLES[alias]='fg=#53D5BE'
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=#53D5BE'
 ZSH_HIGHLIGHT_STYLES[function]='fg=#53D5BE'
 
+# bat theme
+export BAT_THEME="tokyonight"
+
 # THEME STARSHIP
 eval "$(starship init zsh)"
 precmd() { precmd() { echo "" } } # adds line break between prompts
