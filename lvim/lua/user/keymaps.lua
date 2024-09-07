@@ -1,6 +1,7 @@
 lvim.leader = "space"
 
 lvim.builtin.which_key.mappings["r"] = { ":SaveReloadAndRestartLsp<CR>", "Reload" }
+lvim.builtin.which_key.mappings["R"] = { ":ReplaceFileWithClipboard<CR>", "Replace With Clipboard" }
 lvim.builtin.which_key.mappings["y"] = { ":let @+=expand('%:p')<cr>", "Yank Filepath" }
 lvim.builtin.which_key.mappings["h"] = { ":noh<CR>", "No Highlight" }
 lvim.builtin.which_key.mappings["t"] = { ":Trouble diagnostics toggle focus=true<CR>", "Trouble Diagnostics" }
