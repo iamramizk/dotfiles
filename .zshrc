@@ -139,6 +139,9 @@ ZSH_HIGHLIGHT_STYLES[function]='fg=#53D5BE'
 # bat theme
 export BAT_THEME="tokyonight"
 
+# exa colors
+export EXA_COLORS="*.md=38;5;44:*.txt=38;5;38"
+
 # gum theme
 export GUM_CHOOSE_CURSOR_FOREGROUND="14"
 export GUM_CHOOSE_HEADER_FOREGROUND="14"

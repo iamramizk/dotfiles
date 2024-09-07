@@ -63,11 +63,12 @@ alias upip="python3 -m pip install --upgrade pip"
 
 # PYTHON GLOBAL
 alias pyg="cd $PYGLOBAL"
-alias csvprint="python3 $PYGLOBAL/print_csv.py"
-alias pys="python3 $PYGLOBAL/server_hotreload.py"
-alias passgen="python3 $PYGLOBAL/passgen.py"
-alias cc="python3 $PYGLOBAL/clearclipboard.py"
-alias cmm="python3 $PYGLOBAL/clean_my_mac.py"
+alias csvprint="py $PYGLOBAL/print_csv.py"
+alias pys="py $PYGLOBAL/server_hotreload.py"
+alias passgen="py $PYGLOBAL/passgen.py"
+alias cc="py $PYGLOBAL/clearclipboard.py"
+alias cmm="py $PYGLOBAL/clean_my_mac.py"
+alias bashcolors="py $PYGLOBAL/bash_colors.py"
 
 # FUZZING
 alias se='fzf --reverse --multi'
