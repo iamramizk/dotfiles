@@ -72,3 +72,6 @@ alias bashcolors="py $PYGLOBAL/bash_colors.py"
 
 # FUZZING
 alias se='fzf --reverse --multi'
+
+# TORRENTS / DOWNLOADING
+alias torrent="transmission-cli -w /Users/ramiz/Downloads/Torrents -u 100"
