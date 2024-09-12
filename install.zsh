@@ -120,6 +120,7 @@ casks=(
 	"protonvpn"
 	"stats"
 	"notion"
+	"vlc"
 )
 
 # Function to check if a formula is installed
