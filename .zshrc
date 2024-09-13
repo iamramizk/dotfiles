@@ -1,6 +1,7 @@
 # CUSTOM FOLDER PATHS
 export DOTFILESDIR=$HOME/.dotfiles
-export PYTHONDIR=$HOME/Dev/Python
+export DEVDIR=$HOME/Dev
+export PYTHONDIR=$DEVDIR/Python
 export PYGLOBAL=$PYTHONDIR/py-global
  
 
@@ -64,19 +65,6 @@ fi
 
 # Export final PATH
 export PATH
-
-
-# eval $(/opt/homebrew/bin/brew shellenv)
-# PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
-# PATH="/usr/local/bin:$PATH"
-# export PATH="$HOME/.local/bin:$PATH"
-# export PATH="$PATH:$HOME/Dev/Flutter/SDK/flutter/bin"
-
-# PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:${PATH}"
-# export PATH
-
-# export BUN_INSTALL="$HOME/Library/Application Support/reflex/bun"
-# export PATH="$BUN_INSTALL/bin:$PATH"
 
 
 ### DOTFILES
