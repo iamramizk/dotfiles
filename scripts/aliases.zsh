@@ -69,6 +69,7 @@ alias passgen="py $PYGLOBAL/passgen.py"
 alias cc="py $PYGLOBAL/clearclipboard.py"
 alias cmm="py $PYGLOBAL/clean_my_mac.py"
 alias bashcolors="py $PYGLOBAL/bash_colors.py"
+alias nato="py $PYGLOBAL/nato.py"
 
 # FUZZING
 alias se='fzf --reverse --multi'
