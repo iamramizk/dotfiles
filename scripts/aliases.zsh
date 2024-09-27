@@ -67,7 +67,7 @@ alias csvprint="py $PYGLOBAL/print_csv.py"
 alias pys="py $PYGLOBAL/server_hotreload.py"
 alias passgen="py $PYGLOBAL/passgen.py"
 alias cc="py $PYGLOBAL/clearclipboard.py"
-alias cmm="py $PYGLOBAL/clean_my_mac.py"
+alias cmm="sudo python3 $PYGLOBAL/clean_my_mac.py"
 alias bashcolors="py $PYGLOBAL/bash_colors.py"
 alias nato="py $PYGLOBAL/nato.py"
 

@@ -1,3 +1,4 @@
+import shutil
 import subprocess
 from reprint import output
 import os
@@ -15,23 +16,42 @@ RESET = "\033[0m"
 LOG = list()
 
 paths_to_clear = [
-    f"{HOME_PATH}/Library/Caches",
-    f"{HOME_PATH}/Library/Logs",
-    f"{HOME_PATH}/Library/Application Support/CrashReporter",
-    "/Library/Caches",
-    "/System/Library/Caches",
-    "/private/var/folders",
+    f"{HOME_PATH}/Library/Caches/",
+    f"{HOME_PATH}/Library/Logs/",
+    f"{HOME_PATH}/Library/Application Support/CrashReporter/",
+    f"{HOME_PATH}/.Trash/",
+    # "/Library/Caches/",
+    # "/System/Library/Caches/",
+    "/private/var/folders/",
 ]
 
 
 def clear_directory(directory_path: str):
     """Clears a given directory"""
     # Check if the directory exists
+    # if os.path.exists(directory_path) and os.path.isdir(directory_path):
+    # try:
+    #     os.system(f"sudo /bin/rm -rf {directory_path}*")
+    #     # subprocess.run(
+    #     #     ["sudo", "/bin/rm", "-rf", f"{directory_path}*"],
+    #     #     # ["sudo", "/bin/rm", "-rf", os.path.join(directory_path, "*")],
+    #     #     check=True,
+    #     #     shell=True,
+    #     # )
+    # except Exception as e:
+    #     print(e)
+    #     print()
+    #     LOG.append(e)
     if os.path.exists(directory_path) and os.path.isdir(directory_path):
         try:
-            subprocess.run(["rm", "-rf", os.path.join(directory_path, "*")], check=True)
+            for item in os.listdir(directory_path):
+                item_path = os.path.join(directory_path, item)
+                if os.path.isfile(item_path) or os.path.islink(item_path):
+                    os.unlink(item_path)
+                elif os.path.isdir(item_path):
+                    shutil.rmtree(item_path)
         except Exception as e:
-            LOG.append(e)
+            print(f"Error clearing directory: {e}")
 
 
 def get_directory_size_in_mb(directory: str) -> float:

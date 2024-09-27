@@ -23,7 +23,7 @@ $status\
 [directory]
 style = "fg:#C0C9F6 bg:#3B4161"
 format = "[ $path ]($style)[ ](fg:#3B4161)"
-truncation_length = 3
+truncation_length = 2
 truncation_symbol = "…/"
 
 [directory.substitutions]
