@@ -90,6 +90,7 @@ formulae=(
 	"eza"
 	"bat"
 	"htop"
+	"ncdu"
 	"lua"
 	"lua-language-server"
 	"ninja"
