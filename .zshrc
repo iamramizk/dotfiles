@@ -3,6 +3,9 @@ export DOTFILESDIR=$HOME/.dotfiles
 export DEVDIR=$HOME/Dev
 export PYTHONDIR=$DEVDIR/Python
 export PYGLOBAL=$PYTHONDIR/py-global
+export ICLOUDDIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs/"
+export NOTESDIR=$ICLOUDDIR/Notes/Vault
+export CYBERSECDIR=$HOME/Dev/CyberSec/
  
 
 # Fix right indent padding
@@ -142,3 +145,8 @@ eval "$(starship init zsh)"
 precmd() { precmd() { echo "" } } # adds line break between prompts
 
 
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/ramiz/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
