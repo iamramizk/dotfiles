@@ -94,3 +94,6 @@ alias se='fzf --reverse --multi'
 
 # TORRENTS / DOWNLOADING
 alias torrent="transmission-cli -w $HOME/Downloads/Torrents -u 100"
+
+#CYBER SEC
+alias nscripts="cd /opt/homebrew/opt/nmap/share/nmap"
