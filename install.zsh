@@ -30,11 +30,19 @@ fi
 ln -s "$DOTFILES/iterm2-config" "$HOME/.config/iterm2-config"
 
 # lunarvim
-if [ -d "$HOME/.config/lvim" ]; then
-	echo -e "$PREFIX lvim/ found. Creating backup"
-	mv "$HOME/.config/lvim" "$HOME/.config/lvim.bak"
+# if [ -d "$HOME/.config/lvim" ]; then
+# 	echo -e "$PREFIX lvim/ found. Creating backup"
+# 	mv "$HOME/.config/lvim" "$HOME/.config/lvim.bak"
+# fi
+# ln -s "$DOTFILES/lvim" "$HOME/.config/lvim"
+
+# neovim / lazyvim
+if [ -d "$HOME/.config/nvim" ]; then
+	echo -e "$PREFIX nvim/ found. Creating backup"
+	mv "$HOME/.config/nvim" "$HOME/.config/nvim.bak"
 fi
-ln -s "$DOTFILES/lvim" "$HOME/.config/lvim"
+ln -s "$DOTFILES/nvim" "$HOME/.config/nvim"
+
 
 # zshrc
 if [ -e "$HOME/.zshrc" ]; then
@@ -111,6 +119,7 @@ formulae=(
 	"tldr"
 	"trash"
 	"wget"
+  "neovim"
 )
 
 # List of casks
