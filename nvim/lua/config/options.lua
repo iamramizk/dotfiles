@@ -4,3 +4,7 @@
 
 -- Allow left/right arrow keys to move to previous/next line when at line boundaries
 vim.opt.whichwrap:append("<,>")
+
+-- Enable line wrapping by default
+vim.opt.wrap = true
+vim.opt.linebreak = true
