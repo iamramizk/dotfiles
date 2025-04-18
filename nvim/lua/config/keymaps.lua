@@ -32,9 +32,18 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Save & Reload" }
 )
 
+-- replace file with clipboard
 vim.keymap.set(
   { "n", "v" },
   "<leader>fR",
   ":ReplaceFileWithClipboard<CR>",
   { noremap = true, silent = true, desc = "Replace file with Clip" }
+)
+
+-- trouble diagnostics mapping
+vim.keymap.set(
+  { "n", "v" },
+  "T",
+  ":Trouble diagnostics toggle<CR>",
+  { noremap = true, silent = true, desc = "Trouble Diagnostics" }
 )
