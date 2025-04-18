@@ -25,3 +25,9 @@ Temporary Items
 # Ignore the specific file
 scripts/apps.zsh
 lvim/lazy-lock.json
+
+*.swp
+*.swo
+*.bak
+*.un~
+*~

@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # TERMINAL
-alias v='lvim'
+alias v='nvim'
 alias bk='cd ..'
 alias q='exit'
 alias rm='trash'
