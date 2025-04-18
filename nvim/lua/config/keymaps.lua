@@ -23,3 +23,18 @@ vim.keymap.set(
   ":let @+=expand('%:p')<CR>",
   { noremap = true, silent = true, desc = "Yank file path" }
 )
+
+-- mapping for custom script to save, reload, and restart lsp
+vim.keymap.set(
+  { "n", "v" },
+  "<leader>R",
+  ":SaveReloadAndRestartLsp<CR>",
+  { noremap = true, silent = true, desc = "Save & Reload" }
+)
+
+vim.keymap.set(
+  { "n", "v" },
+  "<leader>fR",
+  ":ReplaceFileWithClipboard<CR>",
+  { noremap = true, silent = true, desc = "Replace file with Clip" }
+)
