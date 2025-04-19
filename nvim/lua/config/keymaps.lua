@@ -14,8 +14,6 @@ vim.keymap.set("n", "<S-U>", ":redo<CR>", opts)
 -- Map ' to blackhole register to avoid overwriting default register
 vim.keymap.set("n", "'", '"_', opts)
 
-vim.keymap.set("n", "//", LazyVim.pick("grep_buffers"))
-
 -- Map 'fy' in normal mode to yank full file path to clipboard
 vim.keymap.set(
   "n",
@@ -46,4 +44,31 @@ vim.keymap.set(
   "T",
   ":Trouble diagnostics toggle filter.buf=0<CR>",
   { noremap = true, silent = true, desc = "Trouble Diagnostics" }
+)
+
+-- TELESCOPE
+-- Live grep
+vim.keymap.set("n", "//", "<cmd>Telescope live_grep<cr>", { noremap = true, silent = true, desc = "Live Grep" })
+
+-- Find files
+vim.keymap.set(
+  "n",
+  "<leader>ff",
+  "<cmd>Telescope find_files<cr>",
+  { noremap = true, silent = true, desc = "Find Files" }
+)
+
+-- List open buffers
+vim.keymap.set(
+  "n",
+  "<leader>fb",
+  "<cmd>Telescope buffers<cr>",
+  { noremap = true, silent = true, desc = "List Open Buffers" }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader><space>",
+  "<cmd>Telescope git_files<cr>",
+  { noremap = true, silent = true, desc = "Find Files in Git Repo" }
 )

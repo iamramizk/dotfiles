@@ -27,3 +27,5 @@ vim.diagnostic.config({
     },
   },
 })
+
+vim.g.lazy_picker = "telescope"
