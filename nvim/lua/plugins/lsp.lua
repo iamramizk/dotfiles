@@ -2,6 +2,11 @@ vim.filetype.add({
   extension = {
     zsh = "sh",
   },
+  filename = {
+    [".zshrc"] = "sh",
+    [".zprofile"] = "sh",
+    [".zshenv"] = "sh",
+  },
 })
 
 return {

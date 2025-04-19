@@ -1,3 +1,5 @@
+#!/bin/zsh
+#
 # CUSTOM FOLDER PATHS
 export DOTFILESDIR=$HOME/.dotfiles
 export DEVDIR=$HOME/Dev
