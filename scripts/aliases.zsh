@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 # TERMINAL
 alias v='nvim'
 alias bk='cd ..'
