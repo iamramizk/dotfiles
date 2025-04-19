@@ -44,6 +44,6 @@ vim.keymap.set(
 vim.keymap.set(
   { "n", "v" },
   "T",
-  ":Trouble diagnostics toggle<CR>",
+  ":Trouble diagnostics toggle filter.buf=0<CR>",
   { noremap = true, silent = true, desc = "Trouble Diagnostics" }
 )
