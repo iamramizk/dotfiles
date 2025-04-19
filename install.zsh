@@ -104,8 +104,10 @@ formulae=(
 	"htop"
 	"lua"
 	"lua-language-server"
+  "luarocks"
 	"make"
 	"ncdu"
+  "neovim"
 	"ninja"
 	"nmap"
 	"node"
@@ -119,7 +121,6 @@ formulae=(
 	"tldr"
 	"trash"
 	"wget"
-  "neovim"
 )
 
 # List of casks
