@@ -53,3 +53,11 @@ vim.keymap.set(
   ":lua Snacks.picker.grep_buffers({ buffers = { vim.api.nvim_get_current_buf() } })<cr>",
   { noremap = true, silent = true, desc = "Live Grep" }
 )
+
+-- Snacks find hidden files
+vim.keymap.set(
+  "n",
+  "<leader>fh",
+  ":lua Snacks.picker.files({ hidden = true })<cr>",
+  { noremap = true, silent = true, desc = "Find Hidden Files" }
+)

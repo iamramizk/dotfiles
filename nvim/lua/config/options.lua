@@ -28,4 +28,4 @@ vim.diagnostic.config({
   },
 })
 
-vim.g.lazy_picker = "telescope"
+vim.g.lazy_picker = "snacks"
