@@ -46,29 +46,10 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Trouble Diagnostics" }
 )
 
--- TELESCOPE
--- Live grep
-vim.keymap.set("n", "//", "<cmd>Telescope live_grep<cr>", { noremap = true, silent = true, desc = "Live Grep" })
-
--- Find files
+-- Snacks live grep
 vim.keymap.set(
   "n",
-  "<leader>ff",
-  "<cmd>Telescope find_files<cr>",
-  { noremap = true, silent = true, desc = "Find Files" }
-)
-
--- List open buffers
-vim.keymap.set(
-  "n",
-  "<leader>fb",
-  "<cmd>Telescope buffers<cr>",
-  { noremap = true, silent = true, desc = "List Open Buffers" }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader><space>",
-  "<cmd>Telescope git_files<cr>",
-  { noremap = true, silent = true, desc = "Find Files in Git Repo" }
+  "//",
+  ":lua Snacks.picker.grep_buffers({ buffers = { vim.api.nvim_get_current_buf() } })<cr>",
+  { noremap = true, silent = true, desc = "Live Grep" }
 )
