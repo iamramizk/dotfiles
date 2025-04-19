@@ -2,7 +2,6 @@ return {
   {
     "Bekaboo/dropbar.nvim",
     dependencies = {
-      -- "nvim-telescope/telescope-fzf-native.nvim", -- optional for fuzzy search in dropbar menus
       "echasnovski/mini.icons",
     },
     config = function()
@@ -55,6 +54,13 @@ return {
 
       dropbar.setup({
         bar = {
+          enable = function(buf, win)
+            return vim.api.nvim_buf_is_valid(buf)
+              and vim.api.nvim_win_is_valid(win)
+              and vim.bo[buf].buftype == ""
+              and vim.fn.win_gettype(win) == ""
+              and vim.wo[win].winbar == ""
+          end,
           sources = function(bufnr)
             return {
               custom_path, -- filename
