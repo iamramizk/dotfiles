@@ -102,6 +102,7 @@ formulae=(
 	"git"
 	"gum"
 	"htop"
+  "lazygit"
 	"lua"
 	"lua-language-server"
   "luarocks"
