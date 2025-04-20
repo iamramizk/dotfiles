@@ -35,10 +35,8 @@ alias ttea3g='space && eza -a -L 3 --icons=always --group-directories-first --so
 
 # FILES CONFIG
 alias zrc="v ~/.zshrc"
-alias vrc="v ~/.config/lvim/config.lua"
 alias zalias="v $DOTFILESDIR/scripts/aliases.zsh"
 alias zfunc="v $DOTFILESDIR/scripts/functions.zsh"
-alias vconfig="cd ~/.config/lvim/lua/user"
 alias sconfig="v $HOME/.config/starship.toml"
 alias icloud="cd \"$ICLOUDDIR\""
 alias notes="cd \"$NOTESDIR\""
@@ -62,7 +60,7 @@ alias dls='cd ~/Downloads/'
 alias dtop='cd ~/Desktop'
 alias dev="cd $DEVDIR"
 alias pyd="cd $PYTHONDIR"
-alias vconfig="cd ~/.config/lvim/"
+alias vconfig="cd ~/.config/nvim/lua"
 alias docs="cd ~/Documents"
 alias cyber="cd $CYBERSECDIR"
 alias vols="cd /Volumes/"
