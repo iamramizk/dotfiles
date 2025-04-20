@@ -29,3 +29,5 @@ vim.diagnostic.config({
 })
 
 vim.g.lazy_picker = "snacks"
+
+vim.g.lazyvim_python_lsp = "pyright"

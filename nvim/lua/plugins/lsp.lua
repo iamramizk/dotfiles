@@ -19,6 +19,11 @@ return {
       }
       opts.servers = opts.servers or {}
       opts.servers.cssls = {}
+      opts.servers.ruff = {
+        mason = false,
+        enabled = false,
+      }
+      -- opts.servers.pyright = {}
       -- opts.servers.bashls = {
       --   filetypes = { "sh", "zsh" }, -- activate for sh and zsh
       --   settings = { bashIde = { globPattern = "*@(.sh|.inc|.bash|.command|.zsh)" } },
@@ -55,5 +60,13 @@ return {
       })
     end,
     ft = { "sh", "zsh" },
+  },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "pyright",
+      },
+    },
   },
 }
