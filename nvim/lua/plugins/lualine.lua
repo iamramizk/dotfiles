@@ -57,9 +57,7 @@ return {
       "lsp_status",
       color = { fg = "#79809E" },
       symbols = {
-        spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
         done = "",
-        separator = " ",
       },
     })
 
