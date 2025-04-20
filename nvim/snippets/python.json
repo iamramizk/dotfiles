@@ -1,0 +1,30 @@
+{
+  "RichTable": {
+    "prefix": "RichTable",
+    "body": [
+      "import os",
+      "from rich.table import Table",
+      "from rich.padding import Padding",
+      "from rich.console import Console",
+      "from rich import box, print",
+      "",
+      "console = Console()",
+      "TERMINAL_WIDTH = os.get_terminal_size()[0] - 1",
+      "",
+      "def ${1:print_table}(${2:arg}) -> None:",
+      "    table = Table(",
+      "        show_header=False,",
+      "        caption=\"${3:}\",",
+      "        caption_style=\"dim\",",
+      "        width=TERMINAL_WIDTH,",
+      "        box=box.SIMPLE,",
+      "        show_lines=True,",
+      "    )",
+      "",
+      "    console.print(",
+      "        Padding(\"${4:}\", (1, 4), style=\"cyan on black\")",
+      "    )",
+      "    console.print(table)"
+    ]
+  }
+}

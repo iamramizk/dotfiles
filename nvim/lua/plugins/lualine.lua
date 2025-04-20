@@ -53,6 +53,16 @@ return {
     end
     table.insert(opts.sections.lualine_c, { two_parent_dirs, color = { fg = "#79809E" } })
 
+    table.insert(opts.sections.lualine_x, {
+      "lsp_status",
+      color = { fg = "#79809E" },
+      symbols = {
+        spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+        done = "",
+        separator = " ",
+      },
+    })
+
     opts.sections.lualine_y = {
       { "progress" },
     }
