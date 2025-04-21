@@ -2,8 +2,89 @@ return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
   opts = function(_, opts)
+    opts.options = opts.options or {}
+    opts.options.globalstatus = true
     opts.options.component_separators = { left = "", right = "" }
     opts.options.section_separators = { left = "", right = "" }
+
+    opts.winbar = {
+      lualine_b = {
+        {
+          "filetype",
+          colored = true,
+          icon_only = true,
+          padding = { left = 1, right = 0 },
+          separator = "",
+          color = { bg = "NONE" },
+        },
+
+        {
+          -- Custom filename component to control trailing space manually
+          function()
+            local name = vim.fn.expand("%:t") -- get filename only
+            local modified = vim.bo.modified
+            if modified then
+              -- No trailing space if modified (since symbols.modified = "")
+              return name
+            else
+              -- Add trailing space only if not modified
+              return name .. ""
+            end
+          end,
+          color = function()
+            if vim.bo.modified then
+              return { fg = "#FF9856", bg = "NONE" }
+            else
+              return { fg = "#FFFFFF", bg = "NONE" }
+            end
+          end,
+          separator = "",
+          padding = { left = 0, right = 1 }, -- no padding here
+        },
+        -- {
+        --   "filename",
+        --   symbols = { modified = "" },
+        --   color = function()
+        --     local modified = vim.bo.modified
+        --     if modified then
+        --       return { fg = "#FF9856", bg = "NONE" }
+        --     else
+        --       return { fg = "#FFFFFF", bg = "NONE" }
+        --     end
+        --   end,
+        --   padding = { left = 0, right = 1 },
+        --   separator = "",
+        -- },
+      },
+      -- Add breadcrumbs
+      lualine_c = (vim.g.trouble_lualine and LazyVim.has("trouble.nvim"))
+          and (function()
+            local trouble = require("trouble")
+            local symbols = trouble.statusline({
+              mode = "symbols",
+              groups = {},
+              title = false,
+              filter = { range = true },
+              format = "{kind_icon}{symbol.name:Normal}",
+              -- hl_group = "StatusLineBreadcrumb",
+            })
+
+            return {
+              {
+                symbols and symbols.get,
+                cond = function()
+                  return vim.b.trouble_lualine ~= false and symbols.has()
+                end,
+                -- color = { fg = "#FF9856" },
+                separator = { left = "" },
+              },
+            }
+          end)()
+        or {},
+    }
+    -- make winbar persistent
+    opts.inactive_winbar = opts.winbar
+    opts.options.disabled_filetypes.winbar = { "noice" }
 
     -- Customize lualine_a section
     opts.sections.lualine_a = {

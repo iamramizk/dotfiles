@@ -10,17 +10,19 @@
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
   callback = function()
-    vim.api.nvim_set_hl(0, "WinBar", { bg = "none" })
-    vim.api.nvim_set_hl(0, "WinBarNC", { bg = "none" })
-    vim.api.nvim_set_hl(0, "DropBar", { bg = "none" })
-    vim.api.nvim_set_hl(0, "DropBarFileName", { bg = "none", fg = "#FFFFFF" })
-    vim.api.nvim_set_hl(0, "DropBarFileNameModified", { fg = "#FF9856" })
-    vim.api.nvim_set_hl(0, "DropBarMenu", { bg = "none" })
-    vim.api.nvim_set_hl(0, "DropBarMenuHoverEntry", { bg = "none" })
-    -- Dim the symbols after file name (breadcrumbs)
+    vim.api.nvim_set_hl(0, "StatusLineBreadcrumb", { fg = "#54608C", bg = "none", italic = true })
+    vim.api.nvim_set_hl(0, "WinBar", { fg = "#54608C", bg = "none" })
+    vim.api.nvim_set_hl(0, "WinBarNC", { fg = "#54608C", bg = "none" })
 
-    local breadcrumb_fg = "#54608C"
-    local breadcrumb_opts = { fg = breadcrumb_fg, italic = true }
-    vim.api.nvim_set_hl(0, "DropBarBreadcrumb", breadcrumb_opts)
+    -- DROPBAR
+    -- vim.api.nvim_set_hl(0, "DropBarBreadcrumb", breadcrumb_opts)
+    -- vim.api.nvim_set_hl(0, "DropBar", { bg = "none" })
+    -- vim.api.nvim_set_hl(0, "DropBarFileName", { bg = "none", fg = "#FFFFFF" })
+    -- vim.api.nvim_set_hl(0, "DropBarFileNameModified", { fg = "#FF9856" })
+    -- vim.api.nvim_set_hl(0, "DropBarMenu", { bg = "none" })
+    -- vim.api.nvim_set_hl(0, "DropBarMenuHoverEntry", { bg = "none" })
+    -- Dim the symbols after file name (breadcrumbs)
+    -- local breadcrumb_fg = "#54608C"
+    -- local breadcrumb_opts = { fg = breadcrumb_fg, italic = true }
   end,
 })
