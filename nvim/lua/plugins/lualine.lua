@@ -2,6 +2,7 @@ return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
   opts = function(_, opts)
+    local icons = LazyVim.config.icons
     opts.options = opts.options or {}
     opts.options.globalstatus = true
     opts.options.component_separators = { left = "", right = "" }
@@ -17,17 +18,14 @@ return {
           separator = "",
           color = { bg = "NONE" },
         },
-
         {
           -- Custom filename component to control trailing space manually
           function()
             local name = vim.fn.expand("%:t") -- get filename only
             local modified = vim.bo.modified
             if modified then
-              -- No trailing space if modified (since symbols.modified = "")
               return name
             else
-              -- Add trailing space only if not modified
               return name .. ""
             end
           end,
@@ -57,30 +55,12 @@ return {
         -- },
       },
       -- Add breadcrumbs
-      lualine_c = (vim.g.trouble_lualine and LazyVim.has("trouble.nvim"))
-          and (function()
-            local trouble = require("trouble")
-            local symbols = trouble.statusline({
-              mode = "symbols",
-              groups = {},
-              title = false,
-              filter = { range = true },
-              format = "{kind_icon}{symbol.name:Normal}",
-              -- hl_group = "StatusLineBreadcrumb",
-            })
-
-            return {
-              {
-                symbols and symbols.get,
-                cond = function()
-                  return vim.b.trouble_lualine ~= false and symbols.has()
-                end,
-                -- color = { fg = "#FF9856" },
-                separator = { left = "" },
-              },
-            }
-          end)()
-        or {},
+      lualine_c = {
+        {
+          "navic",
+          separator = { left = "" },
+        },
+      },
     }
     -- make winbar persistent
     opts.inactive_winbar = opts.winbar
@@ -98,9 +78,6 @@ return {
 
     -- update icon in branch
     opts.sections.lualine_b = { { "branch", icon = "" } }
-
-    -- remove navic from default lauline_c
-    opts.sections.lualine_c = vim.list_slice(opts.sections.lualine_c, 1, 2)
 
     -- add parent paths to section c
     local function two_parent_dirs()
@@ -132,7 +109,19 @@ return {
       local folder_icon = " " -- Nerd Font folder icon with trailing space
       return folder_icon .. table.concat(parent_dirs, sep)
     end
-    table.insert(opts.sections.lualine_c, { two_parent_dirs, color = { fg = "#79809E" } })
+    opts.sections.lualine_c = {
+      LazyVim.lualine.root_dir(),
+      {
+        "diagnostics",
+        symbols = {
+          error = icons.diagnostics.Error,
+          warn = icons.diagnostics.Warn,
+          info = icons.diagnostics.Info,
+          hint = icons.diagnostics.Hint,
+        },
+      },
+      { two_parent_dirs, color = { fg = "#79809E" } },
+    }
 
     table.insert(opts.sections.lualine_x, {
       "lsp_status",
