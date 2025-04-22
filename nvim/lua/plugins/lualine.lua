@@ -64,8 +64,13 @@ return {
     }
     -- make winbar persistent
     opts.inactive_winbar = opts.winbar
-    opts.options.disabled_filetypes.winbar =
-      vim.list_extend(opts.options.disabled_filetypes.winbar or {}, { "noice", "man" })
+    opts.options.disabled_filetypes.winbar = vim.list_extend(opts.options.disabled_filetypes.winbar or {}, {
+      "noice",
+      "man",
+      "snacks_terminal",
+      "help",
+      "trouble",
+    })
 
     -- Customize lualine_a section
     opts.sections.lualine_a = {

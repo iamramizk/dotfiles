@@ -13,6 +13,13 @@ return {
         preset = "ivy",
       },
     },
+    terminal = {
+      win = {
+        wo = {
+          winbar = "",
+        },
+      },
+    },
     dashboard = {
       enabled = true,
       preset = {
