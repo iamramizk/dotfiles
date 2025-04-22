@@ -45,8 +45,8 @@ function myip() {
 function nvpyp() {
   # create new python project and env with pip install as args
   echo "${DARKCYAN}\n> Creating virtual env${NC}"
-  mkdir ~/Dev/Python/$1
-  cd ~/Dev/Python/$1
+  mkdir $PYTHONDIR/$1
+  cd $PYTHONDIR/$1
   python3 -m venv .venv
   act
   echo "\n${DARKCYAN}> Env activated -${NC} $(python --version)"
@@ -84,8 +84,8 @@ function nvpyp+() {
 	# Create virtual environment
 	if command -v $python_command >/dev/null 2>&1; then
     echo "${DARKCYAN}\n> Creating virtual env${NC}"
-    mkdir ~/Dev/Python/$1
-    cd ~/Dev/Python/$1
+    mkdir $PYTHONDIR/$1
+    cd $PYTHONDIR/$1
     $python_command -m venv .venv
     act
     echo "\n${DARKCYAN}> Env activated -${NC} $(python --version)"
