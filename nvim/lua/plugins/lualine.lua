@@ -80,7 +80,7 @@ return {
     -- update icon in branch
     opts.sections.lualine_b = { { "branch", icon = "" } }
 
-    -- add parent paths to section c
+    -- function to get parent paths (2)
     local function two_parent_dirs()
       local filepath = vim.fn.expand("%:p")
       if filepath == "" then
@@ -110,8 +110,27 @@ return {
       local folder_icon = " " -- Nerd Font folder icon with trailing space
       return folder_icon .. table.concat(parent_dirs, sep)
     end
+
+    -- function to get python virtual path
+    local function get_pyvenv()
+      local venv = os.getenv("VIRTUAL_ENV")
+      if venv then
+        local name = vim.fn.fnamemodify(venv, ":t")
+        return " " .. name
+      end
+      return ""
+    end
+
     opts.sections.lualine_c = {
+      {
+        get_pyvenv,
+        color = { fg = "#90CF5A" },
+        cond = function()
+          return vim.bo.filetype == "python"
+        end,
+      },
       LazyVim.lualine.root_dir(),
+      { two_parent_dirs, color = { fg = "#79809E" } },
       {
         "diagnostics",
         symbols = {
@@ -121,7 +140,6 @@ return {
           hint = icons.diagnostics.Hint,
         },
       },
-      { two_parent_dirs, color = { fg = "#79809E" } },
     }
 
     table.insert(opts.sections.lualine_x, {
