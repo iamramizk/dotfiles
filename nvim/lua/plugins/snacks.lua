@@ -2,6 +2,13 @@ return {
   "folke/snacks.nvim",
   opts = {
     picker = {
+      sources = {
+        explorer = {
+          jump = {
+            close = true, -- This closes the explorer when opening a file
+          },
+        },
+      },
       win = {
         input = {
           keys = {
