@@ -15,5 +15,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.api.nvim_set_hl(0, "WinBarNC", { fg = dim_fg, bg = "none" })
     vim.api.nvim_set_hl(0, "NavicText", { fg = dim_fg })
     vim.api.nvim_set_hl(0, "NavicSeparator", { fg = dim_fg })
+    vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#13151D" })
   end,
 })

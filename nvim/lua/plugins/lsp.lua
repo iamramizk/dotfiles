@@ -67,6 +67,9 @@ return {
       ensure_installed = {
         "pyright",
       },
+      ui = {
+        border = "rounded",
+      },
     },
   },
 }
