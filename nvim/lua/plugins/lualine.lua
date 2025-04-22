@@ -68,6 +68,7 @@ return {
       "noice",
       "man",
       "snacks_terminal",
+      "snacks_dashboard",
       "help",
       "trouble",
     })
@@ -137,7 +138,17 @@ return {
         end,
       },
       LazyVim.lualine.root_dir(),
-      { two_parent_dirs, color = { fg = "#79809E" } },
+      {
+        two_parent_dirs,
+        color = { fg = "#79809E" },
+        cond = function()
+          -- Hide when in terminal buffers or Snacks terminal
+          if vim.bo.filetype == "snacks_terminal" then
+            return false
+          end
+          return true
+        end,
+      },
       {
         "diagnostics",
         symbols = {
@@ -149,13 +160,6 @@ return {
       },
     }
 
-    -- table.insert(opts.sections.lualine_x, {
-    --   "lsp_status",
-    --   color = { fg = "#79809E" },
-    --   symbols = {
-    --     done = "",
-    --   },
-    -- })
     opts.sections.lualine_x = {
       Snacks.profiler.status(),
       -- stylua: ignore
@@ -210,7 +214,16 @@ return {
     }
 
     opts.sections.lualine_y = {
-      { "progress" },
+      {
+        "progress",
+        cond = function()
+          -- Hide when in terminal buffers or Snacks terminal
+          if vim.bo.filetype == "snacks_terminal" then
+            return false
+          end
+          return true
+        end,
+      },
     }
     opts.sections.lualine_z = {
       { "location", separator = { right = "" } },
