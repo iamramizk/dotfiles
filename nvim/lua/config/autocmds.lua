@@ -25,6 +25,8 @@ local function set_custom_highlights()
   vim.api.nvim_set_hl(0, "NavicText", { fg = dim_fg })
   vim.api.nvim_set_hl(0, "NavicSeparator", { fg = dim_fg })
   vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#22273C" })
+  vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
+  vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
 end
 
 -- Apply on ColorScheme event
