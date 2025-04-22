@@ -6,14 +6,13 @@ export PYGLOBAL=$PYTHONDIR/py-global
 export ICLOUDDIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs/"
 export NOTESDIR=$ICLOUDDIR/Notes/Vault
 export CYBERSECDIR=$HOME/Dev/CyberSec/
- 
 
 # Fix right indent padding
 ZLE_RPROMPT_INDENT=0
 
 
 ### EDITOR
-export EDITOR="$HOME/.local/bin/lvim"
+export EDITOR="/opt/homebrew/bin/nvim"
 
 ### DIR coloured
 LS_COLORS=$LS_COLORS:'di=1;37:' ; export LS_COLORS
@@ -35,6 +34,8 @@ if [[ -x /opt/homebrew/bin/brew ]]; then
 elif [[ -x /usr/local/bin/brew ]]; then
     eval "$(/usr/local/bin/brew shellenv)"
 fi
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 
 # GNU make
 if [[ -d /opt/homebrew/opt/make/libexec/gnubin ]]; then
@@ -146,7 +147,7 @@ precmd() { precmd() { echo "" } } # adds line break between prompts
 
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/ramiz/.docker/completions $fpath)
+fpath=("$HOME/.docker/completions" $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
