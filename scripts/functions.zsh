@@ -10,7 +10,7 @@ function vo() {
   # find file in current dir and open in vim, custom text on binary file
   fd -t f --hidden -d 1 | 
       fzf --height 100% --multi --exact --preview 'if file -b {} | grep -q "text"; then bat -n --color=always --style=plain {}; else echo "[ Binary ]"; fi' | 
-      xargs lvim -p
+      xargs $EDITOR -p
 }
 
 function funcs() {
@@ -174,7 +174,7 @@ function tef() {
 
 
 function lg() {
-  # Live grep and open in lvim on searched line number
+  # Live grep and open in nvim on searched line number
   rg --hidden --glob '!.*' --line-number '' . | fzf --delimiter : --preview 'if [ "{}" != "" ]; then start_line=$(echo {} | cut -d: -f2); file=$(echo {} | cut -d: -f1); bat --style=numbers --color=always --highlight-line $start_line --line-range $((start_line>10 ? start_line-10 : 1)):$((start_line+10)) $file; fi' --preview-window=right:50% --bind 'enter:execute($EDITOR +{2} {1} +"normal! zz")'
 }
 
