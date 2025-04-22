@@ -26,6 +26,9 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.HINT] = icons.Hint,
     },
   },
+  float = {
+    border = "rounded",
+  },
 })
 
 vim.g.lazy_picker = "snacks"
