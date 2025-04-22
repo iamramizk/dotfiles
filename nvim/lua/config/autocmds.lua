@@ -27,6 +27,8 @@ local function set_custom_highlights()
   vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#22273C" })
   vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
   vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NeominimapCursorLine", { bg = "#202537" })
+  vim.api.nvim_set_hl(0, "NeominimapSearchLine", { bg = "#10111A" })
 end
 
 -- Apply on ColorScheme event

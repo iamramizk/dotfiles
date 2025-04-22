@@ -8,6 +8,7 @@ vim.opt.whichwrap:append("<,>")
 -- Enable line wrapping by default
 vim.opt.wrap = true
 vim.opt.linebreak = true
+vim.opt.sidescrolloff = 5
 
 -- update icons
 local icons = {

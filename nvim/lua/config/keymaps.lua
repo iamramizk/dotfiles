@@ -61,3 +61,6 @@ vim.keymap.set(
   ":lua Snacks.picker.files({ hidden = true })<cr>",
   { noremap = true, silent = true, desc = "Find Hidden Files" }
 )
+
+-- neominimap toggle
+vim.keymap.set("n", "|", "<cmd>Neominimap toggle<cr>", { noremap = true, silent = true, desc = "Toggle minimap" })
