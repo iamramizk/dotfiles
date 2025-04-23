@@ -129,6 +129,16 @@ return {
       return ""
     end
 
+    -- function to get column width
+    local function width_gt(n)
+      return function()
+        return vim.o.columns > n
+      end
+    end
+    -- root dir comp with width cond
+    local root_dir = LazyVim.lualine.root_dir()
+    root_dir.cond = width_gt(100)
+
     opts.sections.lualine_c = {
       {
         get_pyvenv,
@@ -137,7 +147,8 @@ return {
           return vim.bo.filetype == "python"
         end,
       },
-      LazyVim.lualine.root_dir(),
+      root_dir,
+      -- LazyVim.lualine.root_dir(),
       {
         two_parent_dirs,
         color = { fg = "#79809E" },
@@ -210,6 +221,7 @@ return {
         symbols = {
           done = "",
         },
+        cond = width_gt(100),
       },
     }
 
