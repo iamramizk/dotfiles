@@ -5,16 +5,16 @@
 -- lua/config/keymaps.lua
 local opts = { noremap = true, silent = true }
 
--- Duplicate current line with Shift+D
+-- DUPLICATE CURRENT LINE
 vim.keymap.set("n", "<S-D>", ":t.<CR>", opts)
 
--- Redo with Shift+U
+-- REDO
 vim.keymap.set("n", "<S-U>", ":redo<CR>", opts)
 
 -- Map ' to blackhole register to avoid overwriting default register
 vim.keymap.set("n", "'", '"_', opts)
 
--- Map 'fy' in normal mode to yank full file path to clipboard
+-- YANK FULL FILE PATH TO CLIPBOARD
 vim.keymap.set(
   "n",
   "<leader>fy",
@@ -22,7 +22,7 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Yank file path" }
 )
 
--- mapping for custom script to save, reload, and restart lsp
+-- SAVE, RELOAD, AND RESTART LSP
 vim.keymap.set(
   { "n", "v" },
   "<leader>R",
@@ -30,7 +30,7 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Save & Reload" }
 )
 
--- replace file with clipboard
+-- REPLACE FILE WITH CLIPBOARD
 vim.keymap.set(
   { "n", "v" },
   "<leader>fR",
@@ -38,7 +38,7 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Replace file with Clip" }
 )
 
--- trouble diagnostics mapping
+-- TROUBLE DIAGNOSTICS MAPPING
 vim.keymap.set(
   { "n", "v" },
   "T",
@@ -46,15 +46,33 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Trouble Diagnostics" }
 )
 
--- Snacks live grep
+-- SNACKS BUFFERS
 vim.keymap.set(
   "n",
-  "//",
-  ":lua Snacks.picker.grep_buffers({ buffers = { vim.api.nvim_get_current_buf() } })<cr>",
-  { noremap = true, silent = true, desc = "Live Grep" }
+  "<leader>,",
+  ":lua Snacks.picker.buffers({ sort_lastused = false })<cr>",
+  { noremap = true, silent = true, desc = "Buffers" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>fb",
+  ":lua Snacks.picker.buffers({ sort_lastused = false })<cr>",
+  { noremap = true, silent = true, desc = "Buffers" }
 )
 
--- Snacks find hidden files
+-- SNACKS LIVE GREP
+vim.keymap.set("n", "//", function()
+  Snacks.picker.grep_buffers({
+    current_buffer = true,
+    formatters = {
+      file = {
+        filename_only = true,
+      },
+    },
+  })
+end, { noremap = true, silent = true, desc = "Live Grep Current Buffer" })
+
+-- SNACKS FIND HIDDEN FILES
 vim.keymap.set(
   "n",
   "<leader>fh",
@@ -62,5 +80,5 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Find Hidden Files" }
 )
 
--- neominimap toggle
+-- NEOMINIMAP TOGGLE
 vim.keymap.set("n", "|", "<cmd>Neominimap toggle<cr>", { noremap = true, silent = true, desc = "Toggle minimap" })
