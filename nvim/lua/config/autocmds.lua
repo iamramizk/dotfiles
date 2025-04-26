@@ -29,6 +29,8 @@ local function set_custom_highlights()
   vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
   -- vim.api.nvim_set_hl(0, "NeominimapCursorLine", { bg = "#202537" })
   vim.api.nvim_set_hl(0, "NeominimapSearchSign", { fg = "#6EA3FE" })
+  vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#2B2E43", bg = "#00D8BD" })
+  vim.api.nvim_set_hl(0, "FlashCurrent", { fg = "#BDCAF9", bg = "#3358A3" })
 end
 
 -- Apply on ColorScheme event
@@ -40,6 +42,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 -- Apply highlights on startup (in case colorscheme already loaded, ie when opening from dashboard)
 set_custom_highlights()
 
+-- Auto enable minimap based on width
 local function toggle_minimap_by_width()
   if vim.o.columns > 100 then
     vim.cmd("Neominimap on")
