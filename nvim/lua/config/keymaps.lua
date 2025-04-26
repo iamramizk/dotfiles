@@ -14,6 +14,9 @@ vim.keymap.set("n", "<S-U>", ":redo<CR>", opts)
 -- Map ' to blackhole register to avoid overwriting default register
 vim.keymap.set("n", "'", '"_', opts)
 
+-- PAGE UP REMAP
+vim.keymap.set("n", "<C-e>", "<C-u>", { desc = "Page Up" })
+
 -- YANK FULL FILE PATH TO CLIPBOARD
 vim.keymap.set(
   "n",
@@ -47,38 +50,41 @@ vim.keymap.set(
 )
 
 -- SNACKS BUFFERS
-vim.keymap.set(
-  "n",
-  "<leader>,",
-  ":lua Snacks.picker.buffers({ sort_lastused = false })<cr>",
-  { noremap = true, silent = true, desc = "Buffers" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>fb",
-  ":lua Snacks.picker.buffers({ sort_lastused = false })<cr>",
-  { noremap = true, silent = true, desc = "Buffers" }
-)
+vim.keymap.set("n", "<leader>,", function()
+  Snacks.picker.buffers({ sort_lastused = false })
+end, { noremap = true, silent = true, desc = "Buffers" })
+
+vim.keymap.set("n", "<leader>fb", function()
+  Snacks.picker.buffers({ sort_lastused = false })
+end, { noremap = true, silent = true, desc = "Buffers" })
 
 -- SNACKS LIVE GREP
 vim.keymap.set("n", "//", function()
-  Snacks.picker.grep_buffers({
-    current_buffer = true,
-    formatters = {
-      file = {
-        filename_only = true,
-      },
-    },
+  Snacks.picker.lines({
+    layout = { preview = false },
   })
 end, { noremap = true, silent = true, desc = "Live Grep Current Buffer" })
 
 -- SNACKS FIND HIDDEN FILES
-vim.keymap.set(
-  "n",
-  "<leader>fh",
-  ":lua Snacks.picker.files({ hidden = true })<cr>",
-  { noremap = true, silent = true, desc = "Find Hidden Files" }
-)
+vim.keymap.set("n", "<leader>fh", function()
+  -- Snacks.picker.files({ hidden = true })
+  Snacks.picker.files({
+    layout = {
+      preview = true,
+      layout = {
+        backdrop = false,
+        row = 1,
+        width = 0.4,
+        min_width = 80,
+        height = 0.4,
+        border = "none",
+        box = "vertical",
+        { win = "input", height = 1, border = "rounded", title = "{title} {live} {flags}", title_pos = "center" },
+        { win = "list", border = "rounded" },
+      },
+    },
+  })
+end, { noremap = true, silent = true, desc = "Find Hidden Files" })
 
 -- NEOMINIMAP TOGGLE
 vim.keymap.set("n", "|", "<cmd>Neominimap toggle<cr>", { noremap = true, silent = true, desc = "Toggle minimap" })
