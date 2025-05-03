@@ -67,6 +67,11 @@ if [[ -d "$BUN_INSTALL/bin" ]]; then
     PATH="$BUN_INSTALL/bin:$PATH"
 fi
 
+# GO
+if [[ -d "$HOME/go/bin" ]]; then
+    PATH="$PATH:$HOME/go/bin"
+fi
+
 # Export final PATH
 export PATH
 
