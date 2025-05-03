@@ -32,12 +32,22 @@ function apps() {
 }
 
 function myip() {
-  # get public and private ip addresses
-  space
-  private_ip_wifi=$(ipconfig getifaddr en1)
-  if [[ -n $private_ip_wifi ]]; then
-    echo "${DARKCYAN}Private IP address (Wi-Fi):${NC} $private_ip_wifi"
+  # Get the active network interface for the default route
+  network_device=$(route get default 2>/dev/null | awk '/interface: / {print $2}')
+
+  # Get the private IP address for that interface
+  if [[ -n $network_device ]]; then
+    private_ip=$(ipconfig getifaddr "$network_device")
+    if [[ -n $private_ip ]]; then
+      echo "${DARKCYAN}Private IP address (${network_device}):${NC} $private_ip"
+    else
+      echo "${DARKCYAN}No private IP address found for interface: ${network_device}${NC}"
+    fi
+  else
+    echo "${DARKCYAN}No active network interface found${NC}"
   fi
+
+  # Get the public IP address
   public_ip=$(curl -s https://api.ipify.org)
   echo "${DARKCYAN}Public IP address:${NC} $public_ip"
 }
