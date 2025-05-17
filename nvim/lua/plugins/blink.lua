@@ -19,6 +19,13 @@ return {
       opts.completion.documentation.window = opts.completion.documentation.window or {}
       opts.completion.documentation.window.border = "rounded"
 
+      -- Disable preselect and auto insert of first suggestion
+      opts.completion.list = opts.completion.list or {}
+      opts.completion.list.selection = {
+        preselect = false,
+        auto_insert = false,
+      }
+
       return opts
     end,
   },

@@ -1290,7 +1290,7 @@
 			<key>Draw Powerline Glyphs</key>
 			<true/>
 			<key>Faint Text Alpha</key>
-			<real>0.50353422619047616</real>
+			<real>0.50178571428571428</real>
 			<key>Flashing Bell</key>
 			<false/>
 			<key>Foreground Color</key>
@@ -1298,13 +1298,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.36374944448471069</real>
+				<real>0.17189353704452515</real>
 				<key>Color Space</key>
 				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.34264218807220459</real>
+				<real>0.16381269693374634</real>
 				<key>Red Component</key>
-				<real>0.30416268110275269</real>
+				<real>0.15521138906478882</real>
 			</dict>
 			<key>Foreground Color (Dark)</key>
 			<dict>
@@ -1600,7 +1600,7 @@
 				<real>0.99697142839431763</real>
 			</dict>
 			<key>Minimum Contrast</key>
-			<real>0.49914434523809526</real>
+			<real>0.0</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
