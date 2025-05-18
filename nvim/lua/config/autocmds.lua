@@ -31,6 +31,10 @@ local function set_custom_highlights()
   vim.api.nvim_set_hl(0, "NeominimapSearchSign", { fg = "#6EA3FE" })
   vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#2B2E43", bg = "#00D8BD" })
   vim.api.nvim_set_hl(0, "FlashCurrent", { fg = "#BDCAF9", bg = "#3358A3" })
+
+  vim.api.nvim_set_hl(0, "LspReferenceText", { bg = "#2C334D" })
+  vim.api.nvim_set_hl(0, "LspReferenceRead", { bg = "#2C334D" })
+  vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { fg = "#6271A6" })
 end
 
 -- Apply on ColorScheme event
