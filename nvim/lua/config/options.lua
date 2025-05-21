@@ -2,8 +2,8 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
--- Allow left/right arrow keys to move to previous/next line when at line boundaries
-vim.opt.whichwrap:append("<,>")
+-- Allow L/R to move U/D line at boundaries in n,v,i modes
+vim.opt.whichwrap:append("<,>,[,]")
 
 -- Enable line wrapping by default
 vim.opt.wrap = true
