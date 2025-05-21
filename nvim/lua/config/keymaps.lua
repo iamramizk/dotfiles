@@ -11,6 +11,10 @@ vim.keymap.set("n", "<S-D>", ":t.<CR>", opts)
 -- REDO
 vim.keymap.set("n", "<S-U>", ":redo<CR>", opts)
 
+-- Move cursor by wrapped lines in insert mode
+vim.keymap.set("i", "<Up>", "<C-o>gk")
+vim.keymap.set("i", "<Down>", "<C-o>gj")
+
 -- Map ' to blackhole register to avoid overwriting default register
 vim.keymap.set("n", "'", '"_', opts)
 
