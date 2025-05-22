@@ -26,6 +26,13 @@ return {
         auto_insert = false,
       }
 
+      -- Add keymap config to map Tab to preselect
+      opts.keymap = opts.keymap or {}
+      opts.keymap = {
+        ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+      }
+
       return opts
     end,
   },
