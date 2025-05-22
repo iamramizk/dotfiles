@@ -29,6 +29,7 @@ return {
       -- Add keymap config to map Tab to preselect
       opts.keymap = opts.keymap or {}
       opts.keymap = {
+        preset = "enter",
         ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
         ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
       }
