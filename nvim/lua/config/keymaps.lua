@@ -77,7 +77,6 @@ vim.keymap.set("n", "<leader>fh", function()
   -- Snacks.picker.files({ hidden = true })
   Snacks.picker.files({
     layout = {
-      preview = true,
       layout = {
         backdrop = false,
         row = 1,
