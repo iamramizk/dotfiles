@@ -12,14 +12,17 @@ vim.keymap.set("n", "<S-D>", ":t.<CR>", opts)
 vim.keymap.set("n", "<S-U>", ":redo<CR>", opts)
 
 -- Move cursor by wrapped lines in insert mode
-vim.keymap.set("i", "<Up>", "<C-o>gk")
-vim.keymap.set("i", "<Down>", "<C-o>gj")
+vim.keymap.set("i", "<Up>", "<C-o>gk", opts)
+vim.keymap.set("i", "<Down>", "<C-o>gj", opts)
 
 -- Map ' to blackhole register to avoid overwriting default register
 vim.keymap.set("n", "'", '"_', opts)
 
 -- PAGE UP REMAP
-vim.keymap.set("n", "<C-e>", "<C-u>", { desc = "Page Up" })
+vim.keymap.set("n", "<C-e>", "<C-u>", opts)
+
+-- Delete line before cursor with command + backspace
+vim.keymap.set("i", "<D-BS>", "<Esc>v0d$a", opts)
 
 -- YANK FULL FILE PATH TO CLIPBOARD
 vim.keymap.set(
