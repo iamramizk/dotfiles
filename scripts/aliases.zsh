@@ -84,6 +84,7 @@ alias cc="py $PYGLOBAL/clearclipboard.py"
 alias cmm="sudo python3 $PYGLOBAL/clean_my_mac.py"
 alias bashcolors="py $PYGLOBAL/bash_colors.py"
 alias nato="py $PYGLOBAL/nato.py"
+alias dnsprobe="py $PYGLOBAL/dns-probe.py"
 
 # FUZZING
 alias se='fzf --reverse --multi'
