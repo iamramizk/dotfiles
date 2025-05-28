@@ -74,7 +74,7 @@ def print_table(data: dict):
     table.add_column("Type", style="magenta")
     table.add_column("Class", style="dim")
     table.add_column("TTL", style="yellow")
-    table.add_column("Data", style="white")
+    table.add_column("Data", style="white", overflow="fold")
     # table.add_column("Nameserver", style="dim")
 
     any_answers = False
