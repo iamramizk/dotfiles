@@ -69,29 +69,8 @@ else
 fi
 
 ### FONTS
-# Tap the Homebrew Fonts Cask if not already tapped
-font_installed() {
-  local font_file="$1"
-  local font_dir="$HOME/Library/Fonts"
-  local system_font_dir="/Library/Fonts"
-
-  echo -e "$PREFIX Checking if font is installed..."
-  # echo -e "$PREFIX Looking for font file: $font_file"
-
-  if [[ -f "$font_dir/$font_file" || -f "$system_font_dir/$font_file" ]]; then
-    # echo -e "$PREFIX Font found."
-    return 0
-  else
-    # echo -e "$PREFIX Font not found."
-    return 1
-  fi
-}
-if font_installed "SauceCodeProNerdFontMono-Regular.ttf"; then
-  echo -e "$PREFIX SauceCodePro Nerd Font Mono is already installed."
-else
-  echo -e "$PREFIX Installing fonts"
-  brew install --cask font-sauce-code-pro-nerd-font
-fi
+echo -e "$PREFIX Installing fonts"
+cp "$DOTFILES/fonts/*.ttf" "~/Library/Fonts/"
 
 ### INSTALL HOMEBREW FORMULAE AND CASKS
 formulae=(
@@ -102,6 +81,7 @@ formulae=(
   "fd"
   "fzf"
   "git"
+  "doggo"
   "gum"
   "htop"
   "lazygit"
