@@ -8,24 +8,24 @@ DOTFILES="$HOME/.dotfiles"
 
 ### CREATE FOLDERS
 if [ ! -d "$HOME/Dev" ]; then
-	mkdir -p $HOME/Dev
+  mkdir -p $HOME/Dev
 fi
 if [ ! -d "$HOME/Dev/Python" ]; then
-	mkdir -p $HOME/Dev/Python
+  mkdir -p $HOME/Dev/Python
 fi
 
 ### CREATE SYMLINKS
 # starship
 if [ -e "$HOME/.config/starship.toml" ]; then
-	echo -e "$PREFIX starship.toml found. Creating backup"
-	mv "$HOME/.config/starship.toml" "$HOME/.config/starship.toml.bak"
+  echo -e "$PREFIX starship.toml found. Creating backup"
+  mv "$HOME/.config/starship.toml" "$HOME/.config/starship.toml.bak"
 fi
 ln -s "$DOTFILES/starship.toml" "$HOME/.config/starship.toml"
 
 # iterm
 if [ -d "$HOME/.config/iterm2-config" ]; then
-	echo -e "$PREFIX iterm2-config/ found. Creating backup"
-	mv "$HOME/.config/iterm2-config" "$HOME/.config/iterm2-config.bak/"
+  echo -e "$PREFIX iterm2-config/ found. Creating backup"
+  mv "$HOME/.config/iterm2-config" "$HOME/.config/iterm2-config.bak/"
 fi
 ln -s "$DOTFILES/iterm2-config" "$HOME/.config/iterm2-config"
 
@@ -38,18 +38,20 @@ ln -s "$DOTFILES/iterm2-config" "$HOME/.config/iterm2-config"
 
 # neovim / lazyvim
 if [ -d "$HOME/.config/nvim" ]; then
-	echo -e "$PREFIX nvim/ found. Creating backup"
-	mv "$HOME/.config/nvim" "$HOME/.config/nvim.bak"
+  echo -e "$PREFIX nvim/ found. Creating backup"
+  mv "$HOME/.config/nvim" "$HOME/.config/nvim.bak"
 fi
 ln -s "$DOTFILES/nvim" "$HOME/.config/nvim"
 
-
 # zshrc
 if [ -e "$HOME/.zshrc" ]; then
-	echo -e "$PREFIX .zshrc found. Creating backup"
-	mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
+  echo -e "$PREFIX .zshrc found. Creating backup"
+  mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
 fi
 ln -s "$DOTFILES/.zshrc" "$HOME/.zshrc"
+
+# alacritty
+ln -s "$DOTFILES/alacritty" "$HOME/.config/alacritty/"
 
 # bat
 ln -s "$DOTFILES/bat" "$HOME/.config/bat"
@@ -59,131 +61,131 @@ ln -s $DOTFILES/scripts/py-global $HOME/Dev/Python/py-global
 
 ### INSTALL HOMEBREW
 if ! command -v brew &>/dev/null; then
-	echo -e "$PREFIX Installing Homebrew"
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	exit 1
+  echo -e "$PREFIX Installing Homebrew"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  exit 1
 else
-	echo -e "$PREFIX Homebrew found. Skipping installation."
+  echo -e "$PREFIX Homebrew found. Skipping installation."
 fi
 
 ### FONTS
 # Tap the Homebrew Fonts Cask if not already tapped
 font_installed() {
-	local font_file="$1"
-	local font_dir="$HOME/Library/Fonts"
-	local system_font_dir="/Library/Fonts"
+  local font_file="$1"
+  local font_dir="$HOME/Library/Fonts"
+  local system_font_dir="/Library/Fonts"
 
-	echo -e "$PREFIX Checking if font is installed..."
-	# echo -e "$PREFIX Looking for font file: $font_file"
+  echo -e "$PREFIX Checking if font is installed..."
+  # echo -e "$PREFIX Looking for font file: $font_file"
 
-	if [[ -f "$font_dir/$font_file" || -f "$system_font_dir/$font_file" ]]; then
-		# echo -e "$PREFIX Font found."
-		return 0
-	else
-		# echo -e "$PREFIX Font not found."
-		return 1
-	fi
+  if [[ -f "$font_dir/$font_file" || -f "$system_font_dir/$font_file" ]]; then
+    # echo -e "$PREFIX Font found."
+    return 0
+  else
+    # echo -e "$PREFIX Font not found."
+    return 1
+  fi
 }
 if font_installed "SauceCodeProNerdFontMono-Regular.ttf"; then
-	echo -e "$PREFIX SauceCodePro Nerd Font Mono is already installed."
+  echo -e "$PREFIX SauceCodePro Nerd Font Mono is already installed."
 else
-	echo -e "$PREFIX Installing fonts"
-	brew install --cask font-sauce-code-pro-nerd-font
+  echo -e "$PREFIX Installing fonts"
+  brew install --cask font-sauce-code-pro-nerd-font
 fi
 
 ### INSTALL HOMEBREW FORMULAE AND CASKS
 formulae=(
-	"bat"
-	"cmake"
-	"exploitdb"
-	"eza"
-	"fd"
-	"fzf"
-	"git"
-	"gum"
-	"htop"
+  "bat"
+  "cmake"
+  "exploitdb"
+  "eza"
+  "fd"
+  "fzf"
+  "git"
+  "gum"
+  "htop"
   "lazygit"
-	"lua"
-	"lua-language-server"
+  "lua"
+  "lua-language-server"
   "luarocks"
-	"make"
-	"ncdu"
+  "make"
+  "ncdu"
   "neovim"
-	"ninja"
-	"nmap"
-	"node"
-	"ripgrep"
-	"ruby"
-	"ruff"
-	"shellcheck"
-	"shfmt"
-	"sqlite"
-	"starship"
-	"tldr"
-	"trash"
-	"wget"
+  "ninja"
+  "nmap"
+  "node"
+  "ripgrep"
+  "ruby"
+  "ruff"
+  "shellcheck"
+  "shfmt"
+  "sqlite"
+  "starship"
+  "tldr"
+  "trash"
+  "wget"
 )
 
 # List of casks
 casks=(
-	"chromedriver"
-	"figma"
-	"iterm2"
-	"notion"
-	"protonvpn"
-	"rectangle"
-	"stats"
-	"vlc"
+  "chromedriver"
+  "figma"
+  "iterm2"
+  "notion"
+  "protonvpn"
+  "rectangle"
+  "stats"
+  "vlc"
 )
 
 # Function to check if a formula is installed
 is_formula_installed() {
-	brew list --formula | grep -q "^$1$"
+  brew list --formula | grep -q "^$1$"
 }
 
 # Function to check if a cask is installed
 is_cask_installed() {
-	brew list --cask | grep -q "^$1$"
+  brew list --cask | grep -q "^$1$"
 }
 
 # Function to install a formula or cask
 install_package() {
-	local package_type=$1
-	local package_name=$2
-	local count=$3
-	local total=$4
+  local package_type=$1
+  local package_name=$2
+  local count=$3
+  local total=$4
 
-	if [[ -z "$package_name" ]]; then
-		return
-	fi
+  if [[ -z "$package_name" ]]; then
+    return
+  fi
 
-	if [[ "$package_type" = "formula" ]]; then
-		if is_formula_installed "$package_name"; then
-			echo -e "$PREFIX Formula $package_name is already installed."
-		else
-			echo -e "$PREFIX Installing formula $count/$total: $package_name"
-			brew install "$package_name"
-		fi
-	elif [[ "$package_type" = "cask" ]]; then
-		if is_cask_installed "$package_name"; then
-			echo -e "$PREFIX Cask $package_name is already installed."
-		else
-			echo -e "$PREFIX Installing cask $count/$total: $package_name"
-			brew install --cask "$package_name"
-		fi
-	fi
+  if [[ "$package_type" = "formula" ]]; then
+    if is_formula_installed "$package_name"; then
+      echo -e "$PREFIX Formula $package_name is already installed."
+    else
+      echo -e "$PREFIX Installing formula $count/$total: $package_name"
+      brew install "$package_name"
+    fi
+  elif [[ "$package_type" = "cask" ]]; then
+    if is_cask_installed "$package_name"; then
+      echo -e "$PREFIX Cask $package_name is already installed."
+    else
+      echo -e "$PREFIX Installing cask $count/$total: $package_name"
+      brew install --cask "$package_name"
+    fi
+  fi
 }
 
 # Install formulae
 total_formulae=${#formulae[@]}
 for i in {1..$total_formulae}; do
-	install_package "formula" "${formulae[$i - 1]}" "$i" "$total_formulae"
+  install_package "formula" "${formulae[$i - 1]}" "$i" "$total_formulae"
 done
 
 # Install casks
 total_casks=${#casks[@]}
 for i in {1..$total_casks}; do
-	install_package "cask" "${casks[$i - 1]}" "$i" "$total_casks"
+  install_package "cask" "${casks[$i - 1]}" "$i" "$total_casks"
 done
 
 # Additional global pip installs (used for py global scripts)

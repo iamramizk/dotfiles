@@ -1,0 +1,33 @@
+[window]
+opacity = 0.5
+blur = true
+padding.x = 10
+padding.y = 10
+decorations = "buttonless"
+decorations_theme_variant = "dark"
+
+[font]
+normal.family = "SauceCodePro Nerd Font Mono"
+bold.family = "SauceCodePro Nerd Font Mono"
+italic.family = "SauceCodePro Nerd Font Mono"
+bold_italic.family = "SauceCodePro Nerd Font Mono"
+size = 15.0
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[colors]
+primary.background = "#1a1b25"
+primary.foreground = "#999999"
+cursor.text = "#feffff"
+cursor.cursor = "#c7c7c7"
+
+[cursor]
+style = "Block"
+
+[mouse]
+hide_when_typing = true
+
+[general]
+live_config_reload = true
