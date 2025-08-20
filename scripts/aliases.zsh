@@ -5,6 +5,7 @@ alias q='exit'
 alias rm='trash'
 alias rmf='rm -fr'
 alias space='echo ""'
+alias y='yazi'
 
 # NAVIGATION LS
 alias te='space && eza -T -L 1 --icons=always --group-directories-first --sort=name'
