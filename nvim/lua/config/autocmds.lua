@@ -46,21 +46,21 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 -- Apply highlights on startup (in case colorscheme already loaded, ie when opening from dashboard)
 set_custom_highlights()
 
--- Auto enable minimap based on width
-local function toggle_minimap_by_width()
-  if vim.o.columns > 100 then
-    vim.cmd("Neominimap on")
-  else
-    vim.cmd("Neominimap off")
-  end
-end
-
--- Run once on VimEnter (startup)
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = toggle_minimap_by_width,
-})
-
--- Run on every window resize
-vim.api.nvim_create_autocmd("VimResized", {
-  callback = toggle_minimap_by_width,
-})
+-- -- Auto enable minimap based on width
+-- local function toggle_minimap_by_width()
+--   if vim.o.columns > 100 then
+--     vim.cmd("Neominimap on")
+--   else
+--     vim.cmd("Neominimap off")
+--   end
+-- end
+--
+-- -- Run once on VimEnter (startup)
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   callback = toggle_minimap_by_width,
+-- })
+--
+-- -- Run on every window resize
+-- vim.api.nvim_create_autocmd("VimResized", {
+--   callback = toggle_minimap_by_width,
+-- })
