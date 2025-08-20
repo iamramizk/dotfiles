@@ -128,10 +128,11 @@ source $DOTFILESDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Syntax highlighting
 source $DOTFILESDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-ZSH_HIGHLIGHT_STYLES[command]='fg=#53D5BE'
-ZSH_HIGHLIGHT_STYLES[alias]='fg=#53D5BE'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=#53D5BE'
-ZSH_HIGHLIGHT_STYLES[function]='fg=#53D5BE'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#fab387' # was #53D5BE
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#fab387' # was #53D5BE
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#fab387' # was #53D5BE
+ZSH_HIGHLIGHT_STYLES[function]='fg=#fab387' # was #53D5BE
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#FF776B'
 
 # bat theme
 export BAT_THEME="tokyonight"

@@ -8,8 +8,8 @@ function nf() {
 
 function vo() {
   # find file in current dir and open in vim, custom text on binary file
-  fd -t f --hidden -d 1 | 
-      fzf --height 100% --multi --exact --preview 'if file -b {} | grep -q "text"; then bat -n --color=always --style=plain {}; else echo "[ Binary ]"; fi' | 
+  fd -t f --hidden -d 2 | 
+      fzf --height 100% --multi --exact --preview 'if file -b {} | grep -q "text"; then bat -n --color=always --style=plain {}; else echo "[ Binary ]"; fi' --preview-window=right:50% | 
       xargs $EDITOR -p
 }
 
@@ -191,4 +191,20 @@ function lg() {
 function kps() {
   # kill a process (multi) via fzf
   ps ax | fzf --multi --height=98% | awk '{print $1}' | xargs -I {} sh -c 'gum confirm "Kill process {}?" && kill {} || echo "Process {} not killed"'
+}
+
+
+function nn() {
+  # Create New Note
+	# Default filename
+	if [ -z $1 ]; then
+		filename="$(date "+%Y-%m-%d-%a-%I:%M").md"
+	else
+		# args as string, with space replaced with '-'
+		input_string=$@
+		filename="${input_string// /-}.md"
+	fi
+	touch $filename
+  echo "---\ncreated_date: $(date "+%Y-%m-%d %a")\ncreated_time: $(date "+%I:%M %p")\ntags: []\n---\n\n# " >> $filename
+	v $filename
 }

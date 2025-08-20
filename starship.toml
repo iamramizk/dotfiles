@@ -1,10 +1,10 @@
 add_newline = false
-command_timeout = 20000  # Timeout in milliseconds
+command_timeout = 20000 # Timeout in milliseconds
 
 format = """
-[](fg:#53D5BE)\
-[](bg:#53D5BE fg:#2B2E42)\
-[](fg:#53D5BE bg:#3B4161)\
+[](fg:#fab387)\
+[](bg:#fab387 fg:#313244)\
+[](fg:#fab387 bg:#313244)\
 $directory\
 """
 
@@ -21,8 +21,8 @@ $status\
 
 
 [directory]
-style = "fg:#C0C9F6 bg:#3B4161"
-format = "[ $path ]($style)[ ](fg:#3B4161)"
+style = "fg:#C0C9F6 bg:#313244"
+format = "[ $path ]($style)[ ](fg:#313244)"
 truncation_length = 2
 truncation_symbol = "…/"
 
@@ -82,12 +82,11 @@ style = "bg:#25283D fg:#E8FFC6"
 
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
+time_format = "%R"                         # Hour:Minute Format
 style = "bg:#35383D"
 format = '[ $time](fg:#a0a9cb bg:#25283D)'
 
 [cmd_duration]
-min_time = 5  # 2 seconds = 2000
+min_time = 5                                     # 2 seconds = 2000
 format = '[ $duration ](fg:#a0a9cb bg:#25283D)'
 show_milliseconds = false
-
