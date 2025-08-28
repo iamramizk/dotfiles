@@ -1,12 +1,18 @@
 -- zsh as bash for diagnostics
 vim.filetype.add({
-  extension = {
-    zsh = "sh",
-  },
   filename = {
+    [".zsh"] = "sh",
     [".zshrc"] = "sh",
     [".zprofile"] = "sh",
     [".zshenv"] = "sh",
+    [".zlogin"] = "sh",
+    [".bashrc"] = "bash",
+    [".bash_profile"] = "bash",
+    [".bash_logout"] = "bash",
+    [".bash_aliases"] = "bash",
+  },
+  extension = {
+    zsh = "sh",
   },
 })
 
@@ -24,10 +30,11 @@ return {
         enabled = false,
       }
       -- opts.servers.pyright = {}
-      -- opts.servers.bashls = {
-      --   filetypes = { "sh", "zsh" }, -- activate for sh and zsh
-      --   settings = { bashIde = { globPattern = "*@(.sh|.inc|.bash|.command|.zsh)" } },
-      -- }
+      opts.servers.bashls = {
+        -- filetypes = { "sh", "bash" }, -- activate for sh and zsh
+        filetypes = { "sh", "zsh", "bash" }, -- activate for sh and zsh
+        -- settings = { bashIde = { globPattern = "*@(.sh|.inc|.bash|.command|.zsh)" } },
+      }
     end,
   },
   {
@@ -59,6 +66,7 @@ return {
         shellcheck_options = { "-x", "--enable=all" },
       })
     end,
+    -- ft = { "zsh" },
     ft = { "sh", "zsh" },
   },
   {
@@ -66,9 +74,30 @@ return {
     opts = {
       ensure_installed = {
         "pyright",
+        "black",
+        "shfmt",
       },
       ui = {
         border = "rounded",
+      },
+    },
+  },
+  {
+    "stevearc/conform.nvim",
+    dependencies = { "mason.nvim" },
+    lazy = true,
+    opts = {
+      -- format = {
+      --   timeout_ms = 3000,
+      --   async = false, -- not recommended to change
+      --   quiet = false, -- not recommended to change
+      --   lsp_format = "fallback", -- not recommended to change
+      -- },
+      formatters_by_ft = {
+        python = { "black" },
+        sh = { "shfmt" },
+        zsh = { "shfmt" },
+        bash = { "shfmt" }, -- optional for bash files
       },
     },
   },

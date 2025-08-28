@@ -55,9 +55,9 @@ if [[ -d "$HOME/Dev/Flutter/SDK/flutter/bin" ]]; then
     PATH="$PATH:$HOME/Dev/Flutter/SDK/flutter/bin"
 fi
 
-# Python 3.12
-if [[ -d "/Library/Frameworks/Python.framework/Versions/3.12/bin" ]]; then
-    PATH="/Library/Frameworks/Python.framework/Versions/3.12/bin:$PATH"
+# Python
+if [[ -d "/Library/Frameworks/Python.framework/Versions/3.13/bin" ]]; then
+    PATH="/Library/Frameworks/Python.framework/Versions/3.13/bin:$PATH"
 fi
 
 # Bun
