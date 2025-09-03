@@ -75,6 +75,11 @@ fi
 # Export final PATH
 export PATH
 
+# Ruby env
+if command -v rbenv 1>/dev/null 2>&1; then
+    eval "$(rbenv init -)"
+fi
+
 
 ### DOTFILES
 reload() {
