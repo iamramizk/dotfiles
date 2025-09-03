@@ -56,6 +56,9 @@ ln -s "$DOTFILES/alacritty" "$HOME/.config/alacritty/"
 # bat
 ln -s "$DOTFILES/bat" "$HOME/.config/bat"
 
+# yazi
+ln -s "$DOTFILES/yazi" "$HOME/.config/yazi"
+
 # py global within pyd
 ln -s $DOTFILES/scripts/py-global $HOME/Dev/Python/py-global
 
