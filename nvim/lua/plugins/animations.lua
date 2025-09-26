@@ -25,7 +25,8 @@ return {
     },
   },
   {
-    "echasnovski/mini.animate",
+    "nvim-mini/mini.animate",
+    -- "echasnovski/mini.animate",
     enabled = true,
     opts = function(_, opts)
       opts.scroll = opts.scroll or {}

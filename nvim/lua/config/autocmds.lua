@@ -46,6 +46,18 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 -- Apply highlights on startup (in case colorscheme already loaded, ie when opening from dashboard)
 set_custom_highlights()
 
+-- Auto indent before saving py files
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.py",
+  callback = function()
+    -- Re-indent entire buffer
+    vim.cmd("normal! gg=G")
+    -- Call LSP format
+    vim.lsp.buf.format({ async = false })
+  end,
+  desc = "Auto re-indent and format Python on save",
+})
+
 -- -- Auto enable minimap based on width
 -- local function toggle_minimap_by_width()
 --   if vim.o.columns > 100 then

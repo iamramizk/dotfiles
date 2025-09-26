@@ -25,10 +25,11 @@ return {
       }
       opts.servers = opts.servers or {}
       opts.servers.cssls = {}
-      opts.servers.ruff = {
-        mason = false,
-        enabled = false,
-      }
+      opts.servers.ruff = {}
+      -- opts.servers.ruff = {
+      --   mason = false,
+      --   enabled = false,
+      -- }
       -- opts.servers.pyright = {}
       opts.servers.bashls = {
         -- filetypes = { "sh", "bash" }, -- activate for sh and zsh
@@ -70,16 +71,21 @@ return {
     ft = { "sh", "zsh" },
   },
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
+    -- "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
         "pyright",
-        "black",
+        -- "black",
+        "ruff",
         "shfmt",
+        "html-lsp",
+        "css-lsp",
       },
       ui = {
         border = "rounded",
       },
+      -- PATH = "append",
     },
   },
   {
@@ -87,18 +93,19 @@ return {
     dependencies = { "mason.nvim" },
     lazy = true,
     opts = {
-      -- format = {
-      --   timeout_ms = 3000,
-      --   async = false, -- not recommended to change
-      --   quiet = false, -- not recommended to change
-      --   lsp_format = "fallback", -- not recommended to change
-      -- },
       formatters_by_ft = {
-        python = { "black" },
+        -- python = { "ruff" },
+        -- python = { "black" },
         sh = { "shfmt" },
         zsh = { "shfmt" },
         bash = { "shfmt" }, -- optional for bash files
       },
+      -- default_format_opts = {
+      --   timeout_ms = 3000,
+      --   async = true, -- enable async formatting, recommended
+      --   quiet = false,
+      --   lsp_format = "fallback", -- fallback to LSP formatting if CLI formatter fails
+      -- },
     },
   },
 }
