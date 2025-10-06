@@ -50,14 +50,11 @@ set_custom_highlights()
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.py",
   callback = function()
-    -- Save cursor position
-    local pos = vim.api.nvim_win_get_cursor(0)
-    -- Re-indent entire buffer without moving cursor permanently
-    vim.cmd("normal! gg=G")
-    -- Restore cursor position
-    vim.api.nvim_win_set_cursor(0, pos)
-    -- Call LSP format synchronously
-    vim.lsp.buf.format({ async = false })
+    -- Save the current window view (cursor position + scroll)
+    local view = vim.fn.winsaveview()
+    vim.cmd("normal! gg=G") -- Re-indent the entire buffer
+    vim.lsp.buf.format({ async = false }) -- Call LSP format synchronously
+    vim.fn.winrestview(view) -- Restore the window view (cursor position and scroll)
   end,
   desc = "Auto re-indent and format Python on save",
 })
