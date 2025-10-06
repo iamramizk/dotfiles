@@ -38,6 +38,7 @@ alias ttea3g='space && eza -a -L 3 --icons=always --group-directories-first --so
 alias zrc="v ~/.zshrc"
 alias zalias="v $DOTFILESDIR/scripts/aliases.zsh"
 alias zfunc="v $DOTFILESDIR/scripts/functions.zsh"
+alias zapps="v $DOTFILESDIR/scripts/apps.zsh"
 alias sconfig="v $HOME/.config/starship.toml"
 alias icloud="cd \"$ICLOUDDIR\""
 alias notes="cd \"$NOTESDIR\""
