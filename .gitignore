@@ -1,12 +1,8 @@
-# Ignore macOS system files
+# macOS system & meta
 .DS_Store
 .AppleDouble
 .LSOverride
-
-# Thumbnails
 ._*
-
-# Files that might appear in the root of a volume
 .DocumentRevisions-V100
 .fseventsd
 .Spotlight-V100
@@ -15,17 +11,19 @@
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
 
-# Directories potentially created on remote AFP share
+# AFP remote share dirs
 .AppleDB
 .AppleDesktop
 Network Trash Folder
 Temporary Items
 .apdisk
 
-# Ignore the specific file
+# File specific
 scripts/apps.zsh
 lvim/lazy-lock.json
+nvim/lazy-lock.json
 
+# Editor & backup files
 *.swp
 *.swo
 *.bak
