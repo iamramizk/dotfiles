@@ -526,6 +526,10 @@
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_0C6F96BE-50F0-42C9-8508-FCC2F39C37A1_selection</key>
 	<integer>0</integer>
+	<key>NeverWarnAboutShortLivedSessions_E866615D-C199-4D16-B000-EA4E18E2DDEE</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_E866615D-C199-4D16-B000-EA4E18E2DDEE_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -3581,7 +3585,7 @@
 	<key>SeparateStatusBarsPerPane</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SoundForEsc</key>
