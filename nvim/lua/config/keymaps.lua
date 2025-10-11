@@ -19,7 +19,7 @@ vim.keymap.set("i", "<Down>", "<C-o>gj", opts)
 vim.keymap.set("n", "'", '"_', opts)
 
 -- PAGE UP REMAP
-vim.keymap.set("n", "<C-e>", "<C-u>", opts)
+vim.keymap.set({ "n", "v" }, "<C-e>", "<C-u>", opts)
 
 -- Delete line before cursor with command + backspace
 vim.keymap.set("i", "<D-BS>", "<Esc>v0d$a", opts)
