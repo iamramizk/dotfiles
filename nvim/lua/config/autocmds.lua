@@ -35,6 +35,8 @@ local function set_custom_highlights()
   vim.api.nvim_set_hl(0, "LspReferenceText", { bg = "#2C334D" })
   vim.api.nvim_set_hl(0, "LspReferenceRead", { bg = "#2C334D" })
   vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { fg = "#6271A6" })
+
+  vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#16161E" })
 end
 
 -- Apply on ColorScheme event
