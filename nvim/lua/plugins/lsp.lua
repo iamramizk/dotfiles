@@ -20,9 +20,8 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = function(_, opts)
-      opts.diagnostics = {
-        virtual_text = false,
-      }
+      opts.diagnostics = { virtual_text = false }
+      opts.inlay_hints = { enabled = false }
       opts.servers = opts.servers or {}
       opts.servers.cssls = {}
       opts.servers.ruff = {}
