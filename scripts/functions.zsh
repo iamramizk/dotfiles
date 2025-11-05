@@ -6,9 +6,16 @@ function nf() {
   cd $1
 }
 
+# function vo() {
+#   # find file in current dir and open in vim, custom text on binary file
+#   fd -t f --hidden -d 2 | 
+#       fzf --height 100% --multi --exact --preview 'if file -b {} | grep -q "text"; then bat -n --color=always --style=plain {}; else echo "[ Binary ]"; fi' --preview-window=right:50% | 
+#       xargs $EDITOR -p
+# }
+
 function vo() {
   # find file in current dir and open in vim, custom text on binary file
-  fd -t f --hidden -d 2 | 
+  fd --type f --hidden --follow --exclude .git -x stat -f '%m %N' {} + | sort -rn | cut -d ' ' -f 2- | 
       fzf --height 100% --multi --exact --preview 'if file -b {} | grep -q "text"; then bat -n --color=always --style=plain {}; else echo "[ Binary ]"; fi' --preview-window=right:50% | 
       xargs $EDITOR -p
 }

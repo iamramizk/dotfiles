@@ -114,9 +114,17 @@ setopt HIST_FIND_NO_DUPS
 ### PLUGINS
 # FZF
 eval "$(fzf --zsh)"
-export FZF_DEFAULT_OPTS="--height 40% --reverse --extended --border --multi --cycle --preview-window=down"
-export FZF_DEFAULT_COMMAND="fd --type f"
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_DEFAULT_OPTS="--height 40% --reverse --extended --border --multi --cycle --preview-window=down"
+# export FZF_DEFAULT_COMMAND="fd --type f"
+# export FZF_DEFAULT_COMMAND="rg --files --sort=modified"
+# look into -x stat below
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git -x stat -f '%m %N' {} + | sort -rn | cut -d ' ' -f 2-"
+export FZF_DEFAULT_OPTS="\
+  --height 40% --reverse --extended --border --multi --cycle \
+  --preview 'bat --style=plain --color=always --line-range=:500 {}' \
+  --preview-window=right:50%:nowrap"
+
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Autocompletion
