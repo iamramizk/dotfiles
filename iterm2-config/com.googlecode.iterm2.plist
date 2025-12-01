@@ -15,15 +15,15 @@
 	<key>AITermAPI</key>
 	<integer>2</integer>
 	<key>AIVectorStore</key>
-	<integer>1</integer>
+	<integer>0</integer>
 	<key>Actions</key>
 	<array/>
 	<key>AiMaxTokens</key>
-	<integer>1000000</integer>
+	<integer>400000</integer>
 	<key>AiModel</key>
-	<string>gpt-4.1</string>
+	<string>gpt-5.1</string>
 	<key>AiResponseMaxTokens</key>
-	<integer>32768</integer>
+	<integer>128000</integer>
 	<key>AitermURL</key>
 	<string>https://api.openai.com/v1/responses</string>
 	<key>AllowClipboardAccess</key>
@@ -11981,7 +11981,7 @@
 									<array>
 										<dict>
 											<key>Is Active</key>
-											<integer>0</integer>
+											<integer>1</integer>
 											<key>Session</key>
 											<dict>
 												<key>Bookmark</key>
@@ -11990,6 +11990,8 @@
 													<true/>
 													<key>Ambiguous Double Width</key>
 													<false/>
+													<key>Animate Movement</key>
+													<true/>
 													<key>Ansi 0 Color</key>
 													<dict>
 														<key>Blue Component</key>
@@ -12591,8 +12593,6 @@
 														<key>Red Component</key>
 														<real>0.10196078568696976</real>
 													</dict>
-													<key>Background Image Location</key>
-													<string></string>
 													<key>Badge Color</key>
 													<dict>
 														<key>Alpha Component</key>
@@ -12675,6 +12675,8 @@
 													</dict>
 													<key>Bound Hosts</key>
 													<array/>
+													<key>Brighten Bold Text (Dark)</key>
+													<false/>
 													<key>Character Encoding</key>
 													<integer>4</integer>
 													<key>Close Sessions On End</key>
@@ -13224,6 +13226,8 @@
 													<false/>
 													<key>Shortcut</key>
 													<string></string>
+													<key>Show Offscreen Command line</key>
+													<true/>
 													<key>Show Status Bar</key>
 													<false/>
 													<key>Silence Bell</key>
@@ -13309,7 +13313,7 @@
 												<key>Rows</key>
 												<integer>35</integer>
 												<key>Session GUID</key>
-												<string>1F2BE614-24AF-4A3A-BC1A-9DCF032CDBDD</string>
+												<string>54886492-8237-469F-AB25-0615BAA679A4</string>
 												<key>Short Lived Single Use</key>
 												<false/>
 												<key>Should Expect Current Dir Updates</key>
@@ -13351,6 +13355,8 @@
 													<true/>
 													<key>Ambiguous Double Width</key>
 													<false/>
+													<key>Animate Movement</key>
+													<true/>
 													<key>Ansi 0 Color</key>
 													<dict>
 														<key>Blue Component</key>
@@ -13952,8 +13958,6 @@
 														<key>Red Component</key>
 														<real>0.10196078568696976</real>
 													</dict>
-													<key>Background Image Location</key>
-													<string></string>
 													<key>Badge Color</key>
 													<dict>
 														<key>Alpha Component</key>
@@ -14036,6 +14040,8 @@
 													</dict>
 													<key>Bound Hosts</key>
 													<array/>
+													<key>Brighten Bold Text (Dark)</key>
+													<false/>
 													<key>Character Encoding</key>
 													<integer>4</integer>
 													<key>Close Sessions On End</key>
@@ -14585,6 +14591,8 @@
 													<false/>
 													<key>Shortcut</key>
 													<string></string>
+													<key>Show Offscreen Command line</key>
+													<true/>
 													<key>Show Status Bar</key>
 													<false/>
 													<key>Silence Bell</key>
@@ -14670,7 +14678,7 @@
 												<key>Rows</key>
 												<integer>35</integer>
 												<key>Session GUID</key>
-												<string>B12D534A-6362-488B-9385-56D755B3B478</string>
+												<string>646BF6F4-449A-46A2-82FD-96030DC562B9</string>
 												<key>Short Lived Single Use</key>
 												<false/>
 												<key>Should Expect Current Dir Updates</key>
@@ -14734,6 +14742,8 @@
 													<true/>
 													<key>Ambiguous Double Width</key>
 													<false/>
+													<key>Animate Movement</key>
+													<true/>
 													<key>Ansi 0 Color</key>
 													<dict>
 														<key>Blue Component</key>
@@ -15335,8 +15345,6 @@
 														<key>Red Component</key>
 														<real>0.10196078568696976</real>
 													</dict>
-													<key>Background Image Location</key>
-													<string></string>
 													<key>Badge Color</key>
 													<dict>
 														<key>Alpha Component</key>
@@ -15419,6 +15427,8 @@
 													</dict>
 													<key>Bound Hosts</key>
 													<array/>
+													<key>Brighten Bold Text (Dark)</key>
+													<false/>
 													<key>Character Encoding</key>
 													<integer>4</integer>
 													<key>Close Sessions On End</key>
@@ -15968,6 +15978,8 @@
 													<false/>
 													<key>Shortcut</key>
 													<string></string>
+													<key>Show Offscreen Command line</key>
+													<true/>
 													<key>Show Status Bar</key>
 													<false/>
 													<key>Silence Bell</key>
@@ -16053,7 +16065,7 @@
 												<key>Rows</key>
 												<integer>35</integer>
 												<key>Session GUID</key>
-												<string>78E66C1A-E673-4CAA-9B99-E12AD418482E</string>
+												<string>ECCC2F4A-7B36-44AA-8556-4C0E40A650DB</string>
 												<key>Short Lived Single Use</key>
 												<false/>
 												<key>Should Expect Current Dir Updates</key>
@@ -16095,6 +16107,8 @@
 													<true/>
 													<key>Ambiguous Double Width</key>
 													<false/>
+													<key>Animate Movement</key>
+													<true/>
 													<key>Ansi 0 Color</key>
 													<dict>
 														<key>Blue Component</key>
@@ -16696,8 +16710,6 @@
 														<key>Red Component</key>
 														<real>0.10196078568696976</real>
 													</dict>
-													<key>Background Image Location</key>
-													<string></string>
 													<key>Badge Color</key>
 													<dict>
 														<key>Alpha Component</key>
@@ -16780,6 +16792,8 @@
 													</dict>
 													<key>Bound Hosts</key>
 													<array/>
+													<key>Brighten Bold Text (Dark)</key>
+													<false/>
 													<key>Character Encoding</key>
 													<integer>4</integer>
 													<key>Close Sessions On End</key>
@@ -17329,6 +17343,8 @@
 													<false/>
 													<key>Shortcut</key>
 													<string></string>
+													<key>Show Offscreen Command line</key>
+													<true/>
 													<key>Show Status Bar</key>
 													<false/>
 													<key>Silence Bell</key>
@@ -17414,7 +17430,7 @@
 												<key>Rows</key>
 												<integer>35</integer>
 												<key>Session GUID</key>
-												<string>42F2F115-4A7A-44CA-BCDD-AEB9A51B2FF0</string>
+												<string>A21F1B99-88B0-464D-A186-1FC9899534D1</string>
 												<key>Short Lived Single Use</key>
 												<false/>
 												<key>Should Expect Current Dir Updates</key>
@@ -17478,6 +17494,8 @@
 													<true/>
 													<key>Ambiguous Double Width</key>
 													<false/>
+													<key>Animate Movement</key>
+													<true/>
 													<key>Ansi 0 Color</key>
 													<dict>
 														<key>Blue Component</key>
@@ -18079,8 +18097,6 @@
 														<key>Red Component</key>
 														<real>0.10196078568696976</real>
 													</dict>
-													<key>Background Image Location</key>
-													<string></string>
 													<key>Badge Color</key>
 													<dict>
 														<key>Alpha Component</key>
@@ -18163,6 +18179,8 @@
 													</dict>
 													<key>Bound Hosts</key>
 													<array/>
+													<key>Brighten Bold Text (Dark)</key>
+													<false/>
 													<key>Character Encoding</key>
 													<integer>4</integer>
 													<key>Close Sessions On End</key>
@@ -18712,6 +18730,8 @@
 													<false/>
 													<key>Shortcut</key>
 													<string></string>
+													<key>Show Offscreen Command line</key>
+													<true/>
 													<key>Show Status Bar</key>
 													<false/>
 													<key>Silence Bell</key>
@@ -18797,7 +18817,7 @@
 												<key>Rows</key>
 												<integer>35</integer>
 												<key>Session GUID</key>
-												<string>63A57C84-0E76-4145-8535-90CC022ED7D7</string>
+												<string>51A17BB0-D910-40EF-818A-A03FABC83FC2</string>
 												<key>Short Lived Single Use</key>
 												<false/>
 												<key>Should Expect Current Dir Updates</key>
@@ -18839,6 +18859,8 @@
 													<true/>
 													<key>Ambiguous Double Width</key>
 													<false/>
+													<key>Animate Movement</key>
+													<true/>
 													<key>Ansi 0 Color</key>
 													<dict>
 														<key>Blue Component</key>
@@ -19440,8 +19462,6 @@
 														<key>Red Component</key>
 														<real>0.10196078568696976</real>
 													</dict>
-													<key>Background Image Location</key>
-													<string></string>
 													<key>Badge Color</key>
 													<dict>
 														<key>Alpha Component</key>
@@ -19524,6 +19544,8 @@
 													</dict>
 													<key>Bound Hosts</key>
 													<array/>
+													<key>Brighten Bold Text (Dark)</key>
+													<false/>
 													<key>Character Encoding</key>
 													<integer>4</integer>
 													<key>Close Sessions On End</key>
@@ -20073,6 +20095,8 @@
 													<false/>
 													<key>Shortcut</key>
 													<string></string>
+													<key>Show Offscreen Command line</key>
+													<true/>
 													<key>Show Status Bar</key>
 													<false/>
 													<key>Silence Bell</key>
@@ -20158,7 +20182,7 @@
 												<key>Rows</key>
 												<integer>35</integer>
 												<key>Session GUID</key>
-												<string>7C345D39-4CBD-4173-91C8-71F58BCF14E1</string>
+												<string>9E8E1A4E-AF9B-4D58-AD96-44C2B387F857</string>
 												<key>Short Lived Single Use</key>
 												<false/>
 												<key>Should Expect Current Dir Updates</key>
@@ -20213,7 +20237,7 @@
 									<array>
 										<dict>
 											<key>Is Active</key>
-											<integer>1</integer>
+											<integer>0</integer>
 											<key>Session</key>
 											<dict>
 												<key>Bookmark</key>
@@ -20222,6 +20246,8 @@
 													<true/>
 													<key>Ambiguous Double Width</key>
 													<false/>
+													<key>Animate Movement</key>
+													<true/>
 													<key>Ansi 0 Color</key>
 													<dict>
 														<key>Blue Component</key>
@@ -20823,8 +20849,6 @@
 														<key>Red Component</key>
 														<real>0.10196078568696976</real>
 													</dict>
-													<key>Background Image Location</key>
-													<string></string>
 													<key>Badge Color</key>
 													<dict>
 														<key>Alpha Component</key>
@@ -20907,6 +20931,8 @@
 													</dict>
 													<key>Bound Hosts</key>
 													<array/>
+													<key>Brighten Bold Text (Dark)</key>
+													<false/>
 													<key>Character Encoding</key>
 													<integer>4</integer>
 													<key>Close Sessions On End</key>
@@ -21080,7 +21106,7 @@
 														<real>0.75294119119644165</real>
 													</dict>
 													<key>Guid</key>
-													<string>A8090D74-6757-4133-949C-A3BBA187A716</string>
+													<string>8D4A0D52-6521-476A-8C06-F50BEC6CA5F4</string>
 													<key>Has Hotkey</key>
 													<false/>
 													<key>Horizontal Spacing</key>
@@ -21458,6 +21484,8 @@
 													<false/>
 													<key>Shortcut</key>
 													<string></string>
+													<key>Show Offscreen Command line</key>
+													<true/>
 													<key>Show Status Bar</key>
 													<false/>
 													<key>Silence Bell</key>
@@ -21549,7 +21577,7 @@
 												<key>Rows</key>
 												<integer>35</integer>
 												<key>Session GUID</key>
-												<string>04350F4B-CB9B-428E-8FCA-B9048D5AF0EA</string>
+												<string>1BD9493B-C88E-400B-B10B-DD54B3CE8482</string>
 												<key>Short Lived Single Use</key>
 												<false/>
 												<key>Should Expect Current Dir Updates</key>
@@ -21591,6 +21619,8 @@
 													<true/>
 													<key>Ambiguous Double Width</key>
 													<false/>
+													<key>Animate Movement</key>
+													<true/>
 													<key>Ansi 0 Color</key>
 													<dict>
 														<key>Blue Component</key>
@@ -22192,8 +22222,6 @@
 														<key>Red Component</key>
 														<real>0.10196078568696976</real>
 													</dict>
-													<key>Background Image Location</key>
-													<string></string>
 													<key>Badge Color</key>
 													<dict>
 														<key>Alpha Component</key>
@@ -22276,6 +22304,8 @@
 													</dict>
 													<key>Bound Hosts</key>
 													<array/>
+													<key>Brighten Bold Text (Dark)</key>
+													<false/>
 													<key>Character Encoding</key>
 													<integer>4</integer>
 													<key>Close Sessions On End</key>
@@ -22825,6 +22855,8 @@
 													<false/>
 													<key>Shortcut</key>
 													<string></string>
+													<key>Show Offscreen Command line</key>
+													<true/>
 													<key>Show Status Bar</key>
 													<false/>
 													<key>Silence Bell</key>
@@ -22910,7 +22942,7 @@
 												<key>Rows</key>
 												<integer>35</integer>
 												<key>Session GUID</key>
-												<string>5576E9FF-12B4-4D7C-A48A-9388187FFD3C</string>
+												<string>207FC78A-8892-42AD-9A30-995D914E4890</string>
 												<key>Short Lived Single Use</key>
 												<false/>
 												<key>Should Expect Current Dir Updates</key>
