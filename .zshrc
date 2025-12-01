@@ -127,17 +127,19 @@ export FZF_DEFAULT_OPTS="\
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# Autocompletion
-source $DOTFILESDIR/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
-zstyle ':autocomplete:*history*:*' insert-unambiguous yes
-# bindkey -M menuselect '\r' .accept-line # enter submits command line from menu
-zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 5 # History search limit
-zstyle ':autocomplete:history-search-backward:*' list-lines 5 # History menu.
+if [[ "$ITERM_PROFILE" != "rk-light" ]]; then
+  # Autocompletion
+  source $DOTFILESDIR/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+  bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+  zstyle ':autocomplete:*history*:*' insert-unambiguous yes
+  # bindkey -M menuselect '\r' .accept-line # enter submits command line from menu
+  zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 5 # History search limit
+  zstyle ':autocomplete:history-search-backward:*' list-lines 5 # History menu.
 
-# Autosuggestions
-source $DOTFILESDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+  # Autosuggestions
+  source $DOTFILESDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+  # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+fi
 
 # Syntax highlighting
 source $DOTFILESDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
