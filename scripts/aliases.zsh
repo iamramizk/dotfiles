@@ -99,3 +99,6 @@ alias nscripts="cd /opt/homebrew/opt/nmap/share/nmap"
 
 # AI
 alias oc="opencode"
+
+# NETWORKS
+alias dns_flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
