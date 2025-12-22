@@ -6,6 +6,7 @@ alias rm='trash'
 alias rmf='rm -fr'
 alias space='echo ""'
 alias y='yazi'
+alias uu='brew update && brew upgrade'
 
 # NAVIGATION LS
 alias te='space && eza -T -L 1 --icons=always --group-directories-first --sort=name'
