@@ -126,6 +126,39 @@ function nvpyp+() {
 	fi
 }
 
+function pip_() {
+    # pip install and appends to requirements.txt
+    if [[ "$1" == "install" ]]; then
+        shift
+        local packages=("$@")
+
+        if [ ${#packages[@]} -eq 0 ]; then
+            echo "No packages specified."
+            return 1
+        fi
+
+        if pip install "${packages[@]}"; then
+            local file="requirements.txt"
+            local _file_status="appended"  # Renamed from 'status'
+
+            if [[ ! -f "$file" ]]; then
+                _file_status="created"
+            fi
+
+            for pkg in "${packages[@]}"; do
+                echo "$pkg" >> "$file"
+            done
+
+            # Clean up requirements.txt (remove duplicates in place)
+            sort -u "$file" -o "$file"
+
+            echo -e "${DARKCYAN}\n> Installed:${NC} $(IFS=, ; echo "${packages[*]}")"
+            echo -e "${DARKCYAN}\n> Requirements.txt:${NC} $_file_status"
+        fi
+    else
+        pip "$@"
+    fi
+}
 
 function pyda() {
   # FZF python dirs, cd in & activate env
