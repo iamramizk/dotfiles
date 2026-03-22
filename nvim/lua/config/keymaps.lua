@@ -94,9 +94,9 @@ end, { noremap = true, silent = true, desc = "Find Hidden Files" })
 
 -- NEOMINIMAP TOGGLE
 vim.keymap.set("n", "|", "<cmd>Neominimap toggle<cr>", { noremap = true, silent = true, desc = "Toggle minimap" })
-vim.keymap.set(
-  "n",
-  "<leader>um",
-  "<cmd>Neominimap toggle<cr>",
-  { noremap = true, silent = true, desc = "Toggle minimap" }
-)
+-- vim.keymap.set(
+--   "n",
+--   "<leader>um",
+--   "<cmd>Neominimap toggle<cr>",
+--   { noremap = true, silent = true, desc = "Toggle minimap" }
+-- )
