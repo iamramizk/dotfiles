@@ -8,7 +8,7 @@ alias space='echo ""'
 alias y='yazi'
 alias uu='brew update && brew upgrade'
 
-# NAVIGATION LS
+# NAVIGATION LS: eza
 alias te='space && eza -T -L 1 --icons=always --group-directories-first --sort=name'
 alias te2='space && eza -T -L 2 --icons=always --group-directories-first --sort=name'
 alias te3='space && eza -T -L 3 --icons=always --group-directories-first --sort=name'
@@ -21,6 +21,19 @@ alias tte3='space && eza -T -L 3 --icons=always --group-directories-first --sort
 alias ttea='space && eza -Ta -L 1 --icons=always --group-directories-first --sort=modified --reverse'
 alias ttea2='space && eza -Ta -L 2 --icons=always --group-directories-first --sort=modified --reverse'
 alias ttea3='space && eza -Ta -L 3 --icons=always --group-directories-first --sort=modified --reverse'
+
+alias tel='space && eza -T -L 1 -l --total-size --icons=always --group-directories-first --sort=name'
+alias te2l='space && eza -T -L 2 -l --total-size --icons=always --group-directories-first --sort=name'
+alias te3l='space && eza -T -L 3 -l --total-size --icons=always --group-directories-first --sort=name'
+alias teal='space && eza -Ta -L 1 -l --total-size --icons=always --group-directories-first --sort=name'
+alias tea2l='space && eza -Ta -L 2 -l --total-size --icons=always --group-directories-first --sort=name'
+alias tea3l='space && eza -Ta -L 3 -l --total-size --icons=always --group-directories-first --sort=name'
+alias ttel='space && eza -T -L 1 -l --total-size --icons=always --group-directories-first --sort=modified --reverse'
+alias tte2l='space && eza -T -L 2 -l --total-size --icons=always --group-directories-first --sort=modified --reverse'
+alias tte3l='space && eza -T -L 3 -l --total-size --icons=always --group-directories-first --sort=modified --reverse'
+alias tteal='space && eza -Ta -L 1 -l --total-size --icons=always --group-directories-first --sort=modified --reverse'
+alias ttea2l='space && eza -Ta -L 2 -l --total-size --icons=always --group-directories-first --sort=modified --reverse'
+alias ttea3l='space && eza -Ta -L 3 -l --total-size --icons=always --group-directories-first --sort=modified --reverse'
 
 alias teg='space && eza -L 1 --icons=always --group-directories-first --sort=name'
 alias te2g='space && eza -L 2 --icons=always --group-directories-first --sort=name'
