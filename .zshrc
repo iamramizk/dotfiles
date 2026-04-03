@@ -133,8 +133,8 @@ if [[ "$ITERM_PROFILE" != "rk-light" ]]; then
   bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
   zstyle ':autocomplete:*history*:*' insert-unambiguous yes
   # bindkey -M menuselect '\r' .accept-line # enter submits command line from menu
-  zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 5 # History search limit
-  zstyle ':autocomplete:history-search-backward:*' list-lines 5 # History menu.
+  zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 10 # History search limit
+  zstyle ':autocomplete:history-search-backward:*' list-lines 10 # History menu.
 
   # Autosuggestions
   source $DOTFILESDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
