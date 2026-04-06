@@ -16,5 +16,10 @@ return {
     cmdline = {
       enabled = true,
     },
+    lsp = {
+      progress = {
+        enabled = false, -- This turns off the bottom-right progress messages
+      },
+    },
   },
 }
