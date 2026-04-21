@@ -114,5 +114,6 @@ alias nscripts="cd /opt/homebrew/opt/nmap/share/nmap"
 # AI
 alias oc="opencode"
 
-# NETWORKS
-alias dns_flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+# SYSTEM & NETWORK
+alias dns_flush="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+alias reset_audio="sudo killall coreaudiod"
