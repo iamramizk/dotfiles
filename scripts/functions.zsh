@@ -248,3 +248,13 @@ function nn() {
   echo "---\ncreated_date: $(date "+%Y-%m-%d %a")\ncreated_time: $(date "+%I:%M %p")\ntags: []\n---\n\n# " >> $filename
 	v $filename
 }
+
+function y() {
+  # Yazi wrapper; will cd into dir after closing
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}

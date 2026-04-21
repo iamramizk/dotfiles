@@ -5,7 +5,6 @@ alias q='exit'
 alias rm='trash'
 alias rmf='rm -fr'
 alias space='echo ""'
-alias y='yazi'
 alias uu='brew update && brew upgrade'
 alias img='imgcat -W 100%'
 
