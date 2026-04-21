@@ -7,6 +7,7 @@ alias rmf='rm -fr'
 alias space='echo ""'
 alias y='yazi'
 alias uu='brew update && brew upgrade'
+alias img='imgcat -W 100%'
 
 # NAVIGATION LS: eza
 alias te='space && eza -T -L 1 --icons=always --group-directories-first --sort=name'
