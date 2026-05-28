@@ -162,13 +162,13 @@ export GUM_CHOOSE_ITEM_FOREGROUND="#ffffff"
 export GUM_CONFIRM_SELECTED_BACKGROUND="#3C59A0"
 export GUM_CONFIRM_PROMPT_FOREGROUND="#FFFFFF"
 
-# THEME STARSHIP
-eval "$(starship init zsh)"
-precmd() { precmd() { echo "" } } # adds line break between prompts
-
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=("$HOME/.docker/completions" $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+# THEME STARSHIP
+eval "$(starship init zsh)"
+precmd() { precmd() { echo "" } } # adds line break between prompts
