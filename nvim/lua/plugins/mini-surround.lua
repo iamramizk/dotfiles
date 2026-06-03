@@ -2,6 +2,7 @@ return {
   "nvim-mini/mini.surround",
   -- "echasnovski/mini.surround",
   opts = {
+    search_method = "cover_or_next",
     mappings = {
       add = "sa", -- Add surrounding in Normal and Visual modes
       delete = "sd", -- Delete surrounding
