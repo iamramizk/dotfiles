@@ -1,4 +1,5 @@
-# CUSTOM FOLDER PATHS
+# === EXPORTS ===
+# Custom folders
 export DOTFILESDIR=$HOME/.dotfiles
 export DEVDIR=$HOME/Dev
 export PYTHONDIR=$DEVDIR/Python
@@ -7,14 +8,10 @@ export ICLOUDDIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs/"
 export NOTESDIR=$ICLOUDDIR/Notes/Vault
 export CYBERSECDIR=$HOME/Dev/CyberSec/
 
-# Fix right indent padding
-ZLE_RPROMPT_INDENT=0
-
-
-### EDITOR
 export EDITOR="/opt/homebrew/bin/nvim"
 
-### DIR coloured
+
+# === COLOURS ===
 LS_COLORS=$LS_COLORS:'di=1;37:' ; export LS_COLORS
 
 PURPLE='\033[1;35m'
@@ -27,7 +24,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 
-### PATHS
+# === PATHS ===
 # Homebrew
 if [[ -x /opt/homebrew/bin/brew ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -35,7 +32,6 @@ elif [[ -x /usr/local/bin/brew ]]; then
     eval "$(/usr/local/bin/brew shellenv)"
 fi
 export HOMEBREW_NO_AUTO_UPDATE=1
-
 
 # GNU make
 if [[ -d /opt/homebrew/opt/make/libexec/gnubin ]]; then
@@ -81,15 +77,12 @@ if command -v rbenv 1>/dev/null 2>&1; then
 fi
 
 
-### DOTFILES
-reload() {
-  [[ -f $DOTFILESDIR/scripts/aliases.zsh ]] && source $DOTFILESDIR/scripts/aliases.zsh
-  [[ -f $DOTFILESDIR/scripts/functions.zsh ]] && source $DOTFILESDIR/scripts/functions.zsh
-  [[ -f $DOTFILESDIR/scripts/apps.zsh ]] && source $DOTFILESDIR/scripts/apps.zsh
-}
-reload
+# === DOTFILES ===
+[[ -f $DOTFILESDIR/scripts/aliases.zsh ]] && source $DOTFILESDIR/scripts/aliases.zsh
+[[ -f $DOTFILESDIR/scripts/functions.zsh ]] && source $DOTFILESDIR/scripts/functions.zsh
+[[ -f $DOTFILESDIR/scripts/apps.zsh ]] && source $DOTFILESDIR/scripts/apps.zsh
 
-# KEYBINDS
+# === KEYBINDS ===
 # ctrl+v find file in current dir and open in vim
 zle -N vo
 bindkey '^V' vo
@@ -98,7 +91,7 @@ zle -N fo
 bindkey '^F' fo
 
 
-# HISTORY SETTINGS
+# === HISTORY ===
 HISTSIZE=5000
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
@@ -110,8 +103,29 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS
 
+# === COMPLETIONS ===
+# completions setup (must run before compinit)
+fpath=("$HOME/.docker/completions" $fpath)
 
-### PLUGINS
+# Hybrid compilation & weekly cache check
+autoload -Uz compinit
+if [[ -f ~/.zcompdump ]] && ((( $(date +%s) - $(stat -f %m ~/.zcompdump) ) < 604800)); then
+    compinit -C
+else
+    compinit
+fi
+
+# Manual force rebuild command, run after new cli installs
+zrebuild() {
+    rm -f ~/.zcompdump*
+    compinit
+    compdump
+    zcompile ~/.zcompdump
+    printf "${CYAN}>${NC} Cache rebuilt successfully. Reloading shell...\n"
+    exec zsh
+}
+
+# === PLUGINS ===
 # FZF
 eval "$(fzf --zsh)"
 # export FZF_DEFAULT_OPTS="--height 40% --reverse --extended --border --multi --cycle --preview-window=down"
@@ -127,6 +141,7 @@ export FZF_DEFAULT_OPTS="\
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 
+# === AUTOCOMPLETE & AUTO SUGGESTIONS ===
 if [[ "$ITERM_PROFILE" != "rk-light" ]]; then
   # Autocompletion
   source $DOTFILESDIR/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
@@ -141,7 +156,7 @@ if [[ "$ITERM_PROFILE" != "rk-light" ]]; then
   # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 fi
 
-# Syntax highlighting
+# === SYNTAX HIGHLIGHTING ===
 source $DOTFILESDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_STYLES[command]='fg=#fab387' # was #53D5BE
 ZSH_HIGHLIGHT_STYLES[alias]='fg=#fab387' # was #53D5BE
@@ -149,26 +164,23 @@ ZSH_HIGHLIGHT_STYLES[builtin]='fg=#fab387' # was #53D5BE
 ZSH_HIGHLIGHT_STYLES[function]='fg=#fab387' # was #53D5BE
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#FF776B'
 
-# bat theme
+# === BAT ===
 export BAT_THEME="tokyonight"
 
-# exa colors
+# === EXA ===
 export EXA_COLORS="*.md=38;5;44:*.txt=38;5;38:*.sh=38;5;39:*.zsh=38;5;39"
 
-# gum theme
+# === GUM ===
 export GUM_CHOOSE_CURSOR_FOREGROUND="14"
 export GUM_CHOOSE_HEADER_FOREGROUND="14"
 export GUM_CHOOSE_ITEM_FOREGROUND="#ffffff"
 export GUM_CONFIRM_SELECTED_BACKGROUND="#3C59A0"
 export GUM_CONFIRM_PROMPT_FOREGROUND="#FFFFFF"
 
+# === THEME  ===
+# Fix right indent padding
+ZLE_RPROMPT_INDENT=0
 
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-# fpath=("$HOME/.docker/completions" $fpath)
-# autoload -Uz compinit
-# compinit
-# End of Docker CLI completions
-
-# THEME STARSHIP
+# Starship
 eval "$(starship init zsh)"
 precmd() { precmd() { echo "" } } # adds line break between prompts

@@ -6,6 +6,7 @@ alias rm='trash'
 alias rmf='rm -fr'
 alias uu='brew update && brew upgrade'
 alias img='imgcat -W 100%'
+alias reload='exec zsh'
 
 # NAVIGATION LS: eza
 alias te='eza -T -L 1 --icons=always --group-directories-first --sort=name'
