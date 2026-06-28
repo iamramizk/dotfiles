@@ -39,7 +39,7 @@ if [[ -d /opt/homebrew/opt/make/libexec/gnubin ]]; then
 fi
 
 # Ensure /usr/local/bin is in PATH
-PATH="/usr/local/bin:$PATH"
+# PATH="/usr/local/bin:$PATH"
 
 # User's local bin
 if [[ -d "$HOME/.local/bin" ]]; then
@@ -52,9 +52,9 @@ if [[ -d "$HOME/Dev/Flutter/SDK/flutter/bin" ]]; then
 fi
 
 # Python
-if [[ -d "/Library/Frameworks/Python.framework/Versions/3.13/bin" ]]; then
-    PATH="/Library/Frameworks/Python.framework/Versions/3.13/bin:$PATH"
-fi
+# if [[ -d "/Library/Frameworks/Python.framework/Versions/3.13/bin" ]]; then
+#     PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.13/bin"
+# fi
 
 # Bun
 BUN_INSTALL="$HOME/Library/Application Support/reflex/bun"
@@ -73,7 +73,8 @@ export PATH
 
 # Ruby env
 if command -v rbenv 1>/dev/null 2>&1; then
-    eval "$(rbenv init -)"
+    eval "$(rbenv init - --no-rehash zsh)" # run `rbenv rehash` manually when needed
+    # eval "$(rbenv init -)"
 fi
 
 
