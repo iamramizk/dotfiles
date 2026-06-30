@@ -142,19 +142,21 @@ export FZF_DEFAULT_OPTS="\
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# === AUTOCOMPLETE & AUTO SUGGESTIONS ===
+# === COMPLETION MENU (fzf-tab) & AUTOSUGGESTIONS ===
 if [[ "$ITERM_PROFILE" != "rk-light" ]]; then
-  # Autocompletion
-  source $DOTFILESDIR/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-  bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
-  zstyle ':autocomplete:*history*:*' insert-unambiguous yes
-  # bindkey -M menuselect '\r' .accept-line # enter submits command line from menu
-  zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 10 # History search limit
-  zstyle ':autocomplete:history-search-backward:*' list-lines 10 # History menu.
+  # fzf-tab config — set these BEFORE sourcing the plugin
+  zstyle ':completion:*' menu no                            # let fzf-tab take over the menu
+  zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}     # colour filenames
+  zstyle ':completion:*:descriptions' format '[%d]'         # show group headers
+  zstyle ':fzf-tab:*' switch-group '<' '>'                  # press < / > to switch groups
+  zstyle ':fzf-tab:*' continuous-trigger 'tab'
+  zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 
-  # Autosuggestions
+  # Must come AFTER compinit (lines 112-117) and BEFORE the two plugins below
+  source $DOTFILESDIR/plugins/fzf-tab/fzf-tab.plugin.zsh
+
+  # Autosuggestions (after fzf-tab)
   source $DOTFILESDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-  # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 fi
 
 # === SYNTAX HIGHLIGHTING ===
@@ -169,7 +171,8 @@ ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#FF776B'
 export BAT_THEME="tokyonight"
 
 # === EXA ===
-export EXA_COLORS="*.md=38;5;44:*.txt=38;5;38:*.sh=38;5;39:*.zsh=38;5;39"
+# export EXA_COLORS="*.md=38;5;44:*.txt=38;5;38:*.sh=38;5;39:*.zsh=38;5;39"
+# export EZA_COLORS="*.md=38;5;44:*.txt=38;5;38:*.sh=38;5;39:*.zsh=38;5;39"
 
 # === GUM ===
 export GUM_CHOOSE_CURSOR_FOREGROUND="14"
