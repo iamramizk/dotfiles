@@ -148,6 +148,7 @@ if [[ "$ITERM_PROFILE" != "rk-light" ]]; then
   zstyle ':completion:*' menu no                            # let fzf-tab take over the menu
   zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}     # colour filenames
   zstyle ':completion:*:descriptions' format '[%d]'         # show group headers
+  zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
   zstyle ':fzf-tab:*' switch-group '<' '>'                  # press < / > to switch groups
   zstyle ':fzf-tab:*' continuous-trigger 'tab'
   zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
