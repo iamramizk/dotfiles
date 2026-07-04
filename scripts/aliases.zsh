@@ -4,7 +4,7 @@ alias bk='cd ..'
 alias q='exit'
 alias rm='trash'
 alias rmf='rm -fr'
-alias uu='brew update && brew upgrade'
+alias uu='brew update && brew upgrade && brew autoremove && brew cleanup'
 alias img='imgcat -W 100%'
 alias reload='exec zsh'
 
