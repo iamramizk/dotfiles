@@ -195,6 +195,32 @@ function act() {
   return 0
 }
 
+
+function act2() {
+  # Activates Python environment
+  local found=false
+
+  if [ -f 'env2/bin/activate' ]; then
+    source env2/bin/activate
+    found=true
+  elif [ -f '.env2/bin/activate' ]; then
+    source .env2/bin/activate
+    found=true
+  elif [ -f 'venv2/bin/activate' ]; then
+    source venv2/bin/activate
+    found=true
+  elif [ -f '.venv2/bin/activate' ]; then
+    source .venv2/bin/activate
+    found=true
+  fi
+
+  if [ "$found" = false ]; then
+    echo "\n${PURPLE}!${NC} No virtual env found"
+  fi
+
+  return 0
+}
+
 function copypath() {
   # Copy path to clipboard
   # If no argument passed, use current directory
