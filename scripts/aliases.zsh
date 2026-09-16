@@ -102,6 +102,9 @@ alias bashcolors="py $PYGLOBAL/bash_colors.py"
 alias nato="py $PYGLOBAL/nato.py"
 alias dnsprobe="py $PYGLOBAL/dns-probe.py"
 
+# ASTRO
+alias astroports='lsof -nP -iTCP -sTCP:LISTEN | grep node | awk "{split(\$9,a,\":\"); print a[length(a)], \$2}" | sort -u | while read port pid; do printf "%-6s %-8s %s\n" "$port" "$pid" "$(ps -o command= -p "$pid" | grep -oE "astro\.mjs [a-z]+" | awk "{print \$2}")"; done'
+
 # FUZZING
 alias se='fzf --reverse --multi'
 
