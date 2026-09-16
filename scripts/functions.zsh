@@ -254,9 +254,36 @@ function lg() {
   rg --hidden --glob '!.*' --line-number '' . | fzf --delimiter : --preview 'if [ "{}" != "" ]; then start_line=$(echo {} | cut -d: -f2); file=$(echo {} | cut -d: -f1); bat --style=numbers --color=always --highlight-line $start_line --line-range $((start_line>10 ? start_line-10 : 1)):$((start_line+10)) $file; fi' --preview-window=right:50% --bind 'enter:execute($EDITOR +{2} {1} +"normal! zz")'
 }
 
+# function kps() {
+#   # kill a process (multi) via fzf
+#   ps ax | fzf --multi --height=98% --no-preview | awk '{print $1}' | xargs -I {} sh -c 'gum confirm "Kill process {}?" && kill {} || echo "Process {} not killed"'
+# }
+
 function kps() {
   # kill a process (multi) via fzf
-  ps ax | fzf --multi --height=98% | awk '{print $1}' | xargs -I {} sh -c 'gum confirm "Kill process {}?" && kill {} || echo "Process {} not killed"'
+  (
+    printf "PID\tCOMMAND\n"
+    # Port-listening processes (appends port directly to process name)
+    lsof -i -P -n -sTCP:LISTEN 2>/dev/null | awk 'NR>1 {print $2 "\t" $1 " [PORT: " $9 "]"}'
+    # All other running processes
+    ps -eo pid,comm | awk 'NR>1 && $1 ~ /^[0-9]+$/ {pid=$1; $1=""; sub(/^[ \t]+/, ""); print pid "\t" $0}'
+  ) | awk -F'\t' 'NR==1 || !seen[$1]++' \
+    | column -t -s $'\t' \
+    | fzf --no-preview --multi --height=98% --header-lines=1 \
+    | while read -r pid cmd; do
+        echo ""
+        # Truncate command for prompt safety if it exceeds 50 characters
+        prompt_cmd="$cmd"
+        if (( ${#prompt_cmd} > 50 )); then
+          prompt_cmd="${prompt_cmd:0:47}..."
+        fi
+
+        if gum confirm "Kill process $pid ($prompt_cmd)?" < /dev/tty; then
+          kill -9 "$pid" 2>/dev/null && echo "Killed process $pid ($cmd)"
+        else
+          echo "Process $pid ($cmd) not killed"
+        fi
+      done
 }
 
 
