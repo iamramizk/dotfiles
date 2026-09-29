@@ -7,6 +7,7 @@ alias rmf='rm -fr'
 alias uu='brew update && brew upgrade && brew autoremove && brew cleanup'
 alias img='imgcat -W 100%'
 alias reload='exec zsh'
+alias bat='bat --no-pager'
 
 # NAVIGATION LS: eza
 alias te='eza -T -L 1 --icons=always --group-directories-first --sort=name'
